@@ -1,0 +1,6 @@
+framework module Pods_MTG_Sets_and_Cards {
+  umbrella header "Pods-MTG Sets and Cards-umbrella.h"
+
+  export *
+  module * { export * }
+}
