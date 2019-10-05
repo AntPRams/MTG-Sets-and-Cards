@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,6 +10,10 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MTGSCController" customModule="MTG_Sets_and_Cards" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z60-uO-uUC"/>
+                        <viewControllerLayoutGuide type="bottom" id="LXK-iW-0yO"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,13 +51,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="nTf-yw-T8h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7pf-fr-8Wv"/>
-                            <constraint firstItem="nTf-yw-T8h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pu6-qn-OXo"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nTf-yw-T8h" secondAttribute="bottom" id="yUC-CV-eir"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nTf-yw-T8h" secondAttribute="trailing" id="z65-qv-oXm"/>
+                            <constraint firstItem="nTf-yw-T8h" firstAttribute="top" secondItem="Z60-uO-uUC" secondAttribute="bottom" id="7pf-fr-8Wv"/>
+                            <constraint firstItem="nTf-yw-T8h" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pu6-qn-OXo"/>
+                            <constraint firstAttribute="bottom" secondItem="nTf-yw-T8h" secondAttribute="bottom" constant="34" id="yUC-CV-eir"/>
+                            <constraint firstAttribute="trailing" secondItem="nTf-yw-T8h" secondAttribute="trailing" id="z65-qv-oXm"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="collectionView" destination="tfQ-nz-prL" id="tcg-dX-neM"/>
                         <outlet property="tableView" destination="IWP-TI-GbT" id="OlV-IK-ul9"/>
@@ -62,7 +65,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-57" y="119"/>
+            <point key="canvasLocation" x="-57.971014492753625" y="118.52678571428571"/>
         </scene>
     </scenes>
 </document>

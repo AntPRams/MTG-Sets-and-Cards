@@ -24,4 +24,5 @@ struct MtgCard {
     let smallImageUrl: URL?
     let artCropImageUrl: URL?
     let manaCost: String
+    let rarity: String
 }

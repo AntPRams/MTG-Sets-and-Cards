@@ -13,6 +13,7 @@ class SetCollectionViewCell: UICollectionViewCell {
     static let identifier = "SetCollectionViewCell"
 
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var setIconImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,7 +21,18 @@ class SetCollectionViewCell: UICollectionViewCell {
     }
     
     func setupCellWith(_ set: MtgSet) {
-        titleLabel.text = set.name
+        
+        let attributes: [NSAttributedString.Key : Any] = [
+            .strokeColor : UIColor.white,
+            .strokeWidth : -4,
+            .font : UIFont.belerenLarge!
+        ]
+        
+        titleLabel.attributedText = NSAttributedString(string: set.name, attributes: attributes)
+        //titleLabel.text = set.name
+        guard let defaultImage = UIImage(named: "pmei") else {return}
+        let setIcon = UIImage(named: set.code) ?? defaultImage
+        setIconImageView.image = setIcon
     }
 
 }

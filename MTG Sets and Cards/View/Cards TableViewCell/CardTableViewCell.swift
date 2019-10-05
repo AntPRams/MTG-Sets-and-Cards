@@ -15,9 +15,9 @@ class CardTableViewCell: UITableViewCell {
     
     @IBOutlet weak var containerView: UIView! {
         didSet {
-            containerView.backgroundColor = .clear
+            containerView.backgroundColor = UIColor.white.withAlphaComponent(0.8)
             containerView.layer.cornerRadius = 12
-            containerView.layer.borderWidth = 2
+            containerView.layer.borderWidth = 5
             containerView.layer.borderColor = UIColor.black.cgColor
         }
     }
@@ -27,6 +27,7 @@ class CardTableViewCell: UITableViewCell {
         
         }
     }
+    @IBOutlet weak var rarityImageView: UIImageView!
     @IBOutlet weak var cardName: UILabel! {
         didSet {
             cardName.font = UIFont.belerenMedium
@@ -37,6 +38,7 @@ class CardTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         cardImage.translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = .clear
     }
     
     override func prepareForReuse() {
@@ -57,13 +59,14 @@ class CardTableViewCell: UITableViewCell {
     
     func setupCellWith(_ model: MtgCard) {
         cardName.text = model.name
+        rarityImageView.image = UIImage(named: model.rarity)!
         cardImage.sd_imageIndicator = SDWebImageActivityIndicator.grayLarge
         cardImage.sd_setImage(with: model.artCropImageUrl, completed: nil)
         cardImage.layer.applyMask()
-        dealWithManaCost(model.manaCost)
+        applyManaCostImages(model.manaCost)
     }
     
-    private func dealWithManaCost(_ string: String) {
+    private func applyManaCostImages(_ string: String) {
         
         var newString: String = ""
         string.forEach {
@@ -75,7 +78,6 @@ class CardTableViewCell: UITableViewCell {
         
         let components = newString.components(separatedBy: .whitespaces)
         let cost = components.filter({!$0.isEmpty})
-        print(components)
         
         cost.forEach({ (manaCostSymbol) in
             print(cost.count)
@@ -99,10 +101,8 @@ class CardTableViewCell: UITableViewCell {
                 return
             }
             
-            print("\(manaCostSymbol)imageviewadded")
             stackView.layoutIfNeeded()
             stackView.layoutSubviews()
         })
-        print(stackView.subviews.count)
     }
 }

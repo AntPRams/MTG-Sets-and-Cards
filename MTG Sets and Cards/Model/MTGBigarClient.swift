@@ -34,19 +34,17 @@ class MTGBigarClient {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
+                
                 DispatchQueue.main.async {
                     handler(json, nil)
                 }
-//                let data = json["data"]
-//                for expansion in data["allExpansions"].array! {
-//                    print(expansion["name"].stringValue)
-//                }
-//                print("the count is: \(data["allExpansions"].array!.count)")
+                
             case .failure(let error):
+                
                 DispatchQueue.main.async {
                     handler(nil, error)
                 }
-                //print(error.localizedDescription)
+                
             }
         })
     }
