@@ -59,7 +59,7 @@ class MTGSCController: UIViewController {
             }
             collectionView.reloadData()
         } else {
-            print(error?.localizedDescription)
+            print(error!.localizedDescription)
         }
     }
     
@@ -67,17 +67,16 @@ class MTGSCController: UIViewController {
         if error == nil {
             guard let response = response else {return}
             let data = response["data"]
+            cards.removeAll()
             data["allExpansionCards"].array!.forEach({
                 let name = $0["name"]["en"].stringValue
-                let imageURL = URL(string: $0["imageUrls"][0]["small"].stringValue)
-                //let imgData = try? Data(contentsOf: imageURL!)
-                //let image = UIImage(data: imgData!)
-                let card = MtgCard(name: name, smallImageUrl: imageURL!)
+                let manaCost = $0["manacost"].stringValue
+                let imageURL = URL(string: $0["imageUrls"][0]["artcrop"].stringValue)
+                let card = MtgCard(name: name, smallImageUrl: imageURL!, artCropImageUrl: imageURL!, manaCost: manaCost)
                 cards.append(card)
-                print("appended")
             })
         } else {
-            print(error?.localizedDescription)
+            print(error!.localizedDescription)
         }
         tableView.reloadData()
     }
@@ -104,7 +103,7 @@ extension MTGSCController: UITableViewDataSource {
 
 extension MTGSCController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 140
     }
 }
 
@@ -145,8 +144,6 @@ extension MTGSCController: UICollectionViewDelegateFlowLayout {
         
         let totalHeight = collectionView.frame.height - (spacing * 2)
         let totalWidth = collectionView.frame.width - (spacing * 2)
-        
-        
         
         return CGSize(width: totalWidth, height: totalHeight)
     }

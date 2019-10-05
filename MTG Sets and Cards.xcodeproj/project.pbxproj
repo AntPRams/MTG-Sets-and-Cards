@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91074E6523482DD80081DE94 /* MtgFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91074E6423482DD80081DE94 /* MtgFont.swift */; };
 		91255F742347DD6B00D01F83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91255F732347DD6B00D01F83 /* AppDelegate.swift */; };
 		91255F762347DD6B00D01F83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91255F752347DD6B00D01F83 /* SceneDelegate.swift */; };
 		91255F782347DD6B00D01F83 /* MTGSCController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91255F772347DD6B00D01F83 /* MTGSCController.swift */; };
@@ -20,12 +21,14 @@
 		916379AA2347E07300046CA1 /* CardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 916379A82347E07300046CA1 /* CardTableViewCell.xib */; };
 		9183D14A2347F1500066FF54 /* SetsAndCardsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183D1492347F1500066FF54 /* SetsAndCardsStruct.swift */; };
 		9183D14D234817640066FF54 /* MaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183D14C234817640066FF54 /* MaskView.swift */; };
+		91FC3ABF2348332000F3EA4E /* Beleren.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91FC3ABE2348332000F3EA4E /* Beleren.ttf */; };
 		B659767FFBB1A8D19486FCE3 /* Pods_MTG_Sets_and_Cards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E86716175261517654DDC6A /* Pods_MTG_Sets_and_Cards.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6B35E3F1C34F8106C0BAFA2C /* Pods-MTG Sets and Cards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTG Sets and Cards.release.xcconfig"; path = "Target Support Files/Pods-MTG Sets and Cards/Pods-MTG Sets and Cards.release.xcconfig"; sourceTree = "<group>"; };
 		7E86716175261517654DDC6A /* Pods_MTG_Sets_and_Cards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MTG_Sets_and_Cards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91074E6423482DD80081DE94 /* MtgFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MtgFont.swift; sourceTree = "<group>"; };
 		91255F702347DD6B00D01F83 /* MTG Sets and Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MTG Sets and Cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91255F732347DD6B00D01F83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91255F752347DD6B00D01F83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +44,7 @@
 		916379A82347E07300046CA1 /* CardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardTableViewCell.xib; sourceTree = "<group>"; };
 		9183D1492347F1500066FF54 /* SetsAndCardsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsAndCardsStruct.swift; sourceTree = "<group>"; };
 		9183D14C234817640066FF54 /* MaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskView.swift; sourceTree = "<group>"; };
+		91FC3ABE2348332000F3EA4E /* Beleren.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Beleren.ttf; sourceTree = "<group>"; };
 		9846E0CCD24C085434808F10 /* Pods-MTG Sets and Cards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTG Sets and Cards.debug.xcconfig"; path = "Target Support Files/Pods-MTG Sets and Cards/Pods-MTG Sets and Cards.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,6 +66,14 @@
 				7E86716175261517654DDC6A /* Pods_MTG_Sets_and_Cards.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		91074E6123482CFD0081DE94 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				91FC3ABE2348332000F3EA4E /* Beleren.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		91255F672347DD6B00D01F83 = {
@@ -111,6 +123,7 @@
 				916379A62347DFDC00046CA1 /* Cards TableViewCell */,
 				916379A52347DFCF00046CA1 /* Sets CollectionViewCell */,
 				9183D14C234817640066FF54 /* MaskView.swift */,
+				91074E6423482DD80081DE94 /* MtgFont.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -126,6 +139,7 @@
 		91255F8A2347DD8E00D01F83 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				91074E6123482CFD0081DE94 /* Fonts */,
 				91255F792347DD6B00D01F83 /* Main.storyboard */,
 				91255F7C2347DD6C00D01F83 /* Assets.xcassets */,
 				91255F7E2347DD6C00D01F83 /* LaunchScreen.storyboard */,
@@ -225,6 +239,7 @@
 				916379AA2347E07300046CA1 /* CardTableViewCell.xib in Resources */,
 				916379A42347DFB300046CA1 /* SetCollectionViewCell.xib in Resources */,
 				91255F7B2347DD6B00D01F83 /* Main.storyboard in Resources */,
+				91FC3ABF2348332000F3EA4E /* Beleren.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +296,7 @@
 				9183D14A2347F1500066FF54 /* SetsAndCardsStruct.swift in Sources */,
 				916379A32347DFB300046CA1 /* SetCollectionViewCell.swift in Sources */,
 				916379A92347E07300046CA1 /* CardTableViewCell.swift in Sources */,
+				91074E6523482DD80081DE94 /* MtgFont.swift in Sources */,
 				91255F782347DD6B00D01F83 /* MTGSCController.swift in Sources */,
 				91255F742347DD6B00D01F83 /* AppDelegate.swift in Sources */,
 				91255F762347DD6B00D01F83 /* SceneDelegate.swift in Sources */,

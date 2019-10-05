@@ -9,40 +9,69 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardTableViewCell" customModule="MTG_Sets_and_Cards" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CardTableViewCell" rowHeight="137" id="KGk-i7-Jjw" customClass="CardTableViewCell" customModule="MTG_Sets_and_Cards" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="427" height="137"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CardTableViewCell" rowHeight="140" id="KGk-i7-Jjw" customClass="CardTableViewCell" customModule="MTG_Sets_and_Cards" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="427" height="140"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="427" height="137"/>
+                <rect key="frame" x="0.0" y="0.0" width="427" height="140"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hCx-tM-gRY">
-                        <rect key="frame" x="0.0" y="0.0" width="427" height="137"/>
+                    <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hCx-tM-gRY">
+                        <rect key="frame" x="0.0" y="0.0" width="427" height="140"/>
+                        <constraints>
+                            <constraint firstAttribute="height" priority="750" constant="140" id="icZ-Tc-jFp"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGJ-xD-aXz">
-                        <rect key="frame" x="10" y="49" width="397" height="39"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="bhl-Mq-Cam">
+                        <rect key="frame" x="0.0" y="0.0" width="427" height="140"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dqE-Aq-z2t">
+                                <rect key="frame" x="0.0" y="0.0" width="427" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BGJ-xD-aXz">
+                                        <rect key="frame" x="0.0" y="0.0" width="427" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="750" constant="30" id="jkB-c2-5Tv"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="MES-kh-8DB">
+                                <rect key="frame" x="0.0" y="30" width="427" height="110"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GPc-km-fIg">
+                                        <rect key="frame" x="0.0" y="0.0" width="427" height="55"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RC2-te-Uvs">
+                                        <rect key="frame" x="0.0" y="55" width="427" height="55"/>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="BGJ-xD-aXz" secondAttribute="bottom" constant="49" id="29Y-Dh-b7t"/>
-                    <constraint firstItem="BGJ-xD-aXz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="49" id="ITe-Hh-vrv"/>
-                    <constraint firstItem="hCx-tM-gRY" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="bgG-uo-c7v"/>
-                    <constraint firstItem="hCx-tM-gRY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="e6z-ch-NI6"/>
-                    <constraint firstAttribute="trailing" secondItem="BGJ-xD-aXz" secondAttribute="trailing" constant="20" id="pDB-uI-0vM"/>
-                    <constraint firstItem="hCx-tM-gRY" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="uJ1-uw-lIU"/>
-                    <constraint firstItem="hCx-tM-gRY" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="y02-19-Fii"/>
-                    <constraint firstItem="BGJ-xD-aXz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="yCX-jR-eBF"/>
+                    <constraint firstItem="hCx-tM-gRY" firstAttribute="height" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="height" id="GDd-4T-Ht7"/>
+                    <constraint firstItem="hCx-tM-gRY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="QjS-po-RwK"/>
+                    <constraint firstItem="hCx-tM-gRY" firstAttribute="width" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="width" id="WiQ-P4-gfs"/>
+                    <constraint firstAttribute="trailing" secondItem="bhl-Mq-Cam" secondAttribute="trailing" id="X12-wj-WwX"/>
+                    <constraint firstAttribute="bottom" secondItem="hCx-tM-gRY" secondAttribute="bottom" id="XxD-R7-02U"/>
+                    <constraint firstItem="bhl-Mq-Cam" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="aKV-hN-5Je"/>
+                    <constraint firstItem="hCx-tM-gRY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="mcc-kc-ueT"/>
+                    <constraint firstItem="bhl-Mq-Cam" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="nUw-hn-Beb"/>
+                    <constraint firstAttribute="trailing" secondItem="hCx-tM-gRY" secondAttribute="trailing" id="xzo-pR-SgY"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cardImage" destination="hCx-tM-gRY" id="LuW-Ya-Ccn"/>
                 <outlet property="cardName" destination="BGJ-xD-aXz" id="JWi-wM-jda"/>
+                <outlet property="stackView" destination="dqE-Aq-z2t" id="7MB-5K-gd1"/>
             </connections>
-            <point key="canvasLocation" x="96.376811594202906" y="138.28125"/>
+            <point key="canvasLocation" x="96.376811594202906" y="138.61607142857142"/>
         </tableViewCell>
     </objects>
 </document>
