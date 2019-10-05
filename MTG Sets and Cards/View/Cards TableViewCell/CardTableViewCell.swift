@@ -12,8 +12,21 @@ import SDWebImage
 class CardTableViewCell: UITableViewCell {
     
     static let identifier = "CardTableViewCell"
-
-    @IBOutlet weak var cardImage: UIImageView!
+    
+    @IBOutlet weak var containerView: UIView! {
+        didSet {
+            containerView.backgroundColor = .clear
+            containerView.layer.cornerRadius = 12
+            containerView.layer.borderWidth = 2
+            containerView.layer.borderColor = UIColor.black.cgColor
+        }
+    }
+    @IBOutlet weak var cardImage: UIImageView! {
+        didSet {
+        cardImage.layer.cornerRadius = 12
+        
+        }
+    }
     @IBOutlet weak var cardName: UILabel! {
         didSet {
             cardName.font = UIFont.belerenMedium
@@ -64,14 +77,29 @@ class CardTableViewCell: UITableViewCell {
         let cost = components.filter({!$0.isEmpty})
         print(components)
         
-        cost.forEach({
+        cost.forEach({ (manaCostSymbol) in
             print(cost.count)
             let imageView = UIImageView()
             imageView.backgroundColor = .clear
             imageView.contentMode = ContentMode.scaleAspectFit
             stackView.addArrangedSubview(imageView)
-            imageView.image = UIImage(named: $0)
-            print("\($0)imageviewadded")
+            
+            if manaCostSymbol == "//" {
+                imageView.image = UIImage(named: "dual")
+            } else if manaCostSymbol != " "{
+                var imageName: String {
+                    if manaCostSymbol.contains("/") {
+                        return manaCostSymbol.replacingOccurrences(of: "/", with: ":")
+                    } else {
+                        return manaCostSymbol
+                    }
+                }
+                imageView.image = UIImage(named: imageName)
+            } else {
+                return
+            }
+            
+            print("\(manaCostSymbol)imageviewadded")
             stackView.layoutIfNeeded()
             stackView.layoutSubviews()
         })

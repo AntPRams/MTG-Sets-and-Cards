@@ -11,7 +11,7 @@ import UIKit
 extension UIFont {
     
     static let belerenLarge =  UIFont(name: "Beleren", size: 40)
-    static let belerenMedium = UIFont(name: "Beleren", size: 17)
+    static let belerenMedium = UIFont(name: "Beleren", size: 20)
     static let belerenSmall =  UIFont(name: "Beleren", size: 12)
     
 }
