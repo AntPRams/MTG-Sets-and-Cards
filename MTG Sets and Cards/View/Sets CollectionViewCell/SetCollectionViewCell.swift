@@ -12,11 +12,15 @@ class SetCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "SetCollectionViewCell"
 
-    @IBOutlet weak var setTitle: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func setupCellWith(_ set: MtgSet) {
+        titleLabel.text = set.name
     }
 
 }

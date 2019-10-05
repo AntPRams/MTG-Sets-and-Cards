@@ -15,9 +15,11 @@
 		91255F802347DD6C00D01F83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91255F7E2347DD6C00D01F83 /* LaunchScreen.storyboard */; };
 		916379A02347DF0D00046CA1 /* MTGBigarClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163799F2347DF0D00046CA1 /* MTGBigarClient.swift */; };
 		916379A32347DFB300046CA1 /* SetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916379A12347DFB300046CA1 /* SetCollectionViewCell.swift */; };
-		916379A42347DFB300046CA1 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 916379A22347DFB300046CA1 /* CollectionViewCell.xib */; };
+		916379A42347DFB300046CA1 /* SetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 916379A22347DFB300046CA1 /* SetCollectionViewCell.xib */; };
 		916379A92347E07300046CA1 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916379A72347E07300046CA1 /* CardTableViewCell.swift */; };
 		916379AA2347E07300046CA1 /* CardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 916379A82347E07300046CA1 /* CardTableViewCell.xib */; };
+		9183D14A2347F1500066FF54 /* SetsAndCardsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183D1492347F1500066FF54 /* SetsAndCardsStruct.swift */; };
+		9183D14D234817640066FF54 /* MaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183D14C234817640066FF54 /* MaskView.swift */; };
 		B659767FFBB1A8D19486FCE3 /* Pods_MTG_Sets_and_Cards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E86716175261517654DDC6A /* Pods_MTG_Sets_and_Cards.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,9 +36,11 @@
 		91255F812347DD6C00D01F83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9163799F2347DF0D00046CA1 /* MTGBigarClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGBigarClient.swift; sourceTree = "<group>"; };
 		916379A12347DFB300046CA1 /* SetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCollectionViewCell.swift; sourceTree = "<group>"; };
-		916379A22347DFB300046CA1 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		916379A22347DFB300046CA1 /* SetCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetCollectionViewCell.xib; sourceTree = "<group>"; };
 		916379A72347E07300046CA1 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		916379A82347E07300046CA1 /* CardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardTableViewCell.xib; sourceTree = "<group>"; };
+		9183D1492347F1500066FF54 /* SetsAndCardsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsAndCardsStruct.swift; sourceTree = "<group>"; };
+		9183D14C234817640066FF54 /* MaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskView.swift; sourceTree = "<group>"; };
 		9846E0CCD24C085434808F10 /* Pods-MTG Sets and Cards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTG Sets and Cards.debug.xcconfig"; path = "Target Support Files/Pods-MTG Sets and Cards/Pods-MTG Sets and Cards.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,9 +88,9 @@
 				91255F812347DD6C00D01F83 /* Info.plist */,
 				91255F732347DD6B00D01F83 /* AppDelegate.swift */,
 				91255F752347DD6B00D01F83 /* SceneDelegate.swift */,
-				91255F892347DD8000D01F83 /* Controller */,
-				91255F882347DD7A00D01F83 /* View */,
 				91255F872347DD7400D01F83 /* Model */,
+				91255F882347DD7A00D01F83 /* View */,
+				91255F892347DD8000D01F83 /* Controller */,
 				91255F8A2347DD8E00D01F83 /* Resources */,
 			);
 			path = "MTG Sets and Cards";
@@ -96,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				9163799F2347DF0D00046CA1 /* MTGBigarClient.swift */,
+				9183D1492347F1500066FF54 /* SetsAndCardsStruct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -105,6 +110,7 @@
 			children = (
 				916379A62347DFDC00046CA1 /* Cards TableViewCell */,
 				916379A52347DFCF00046CA1 /* Sets CollectionViewCell */,
+				9183D14C234817640066FF54 /* MaskView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -131,7 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				916379A12347DFB300046CA1 /* SetCollectionViewCell.swift */,
-				916379A22347DFB300046CA1 /* CollectionViewCell.xib */,
+				916379A22347DFB300046CA1 /* SetCollectionViewCell.xib */,
 			);
 			path = "Sets CollectionViewCell";
 			sourceTree = "<group>";
@@ -217,7 +223,7 @@
 				91255F802347DD6C00D01F83 /* LaunchScreen.storyboard in Resources */,
 				91255F7D2347DD6C00D01F83 /* Assets.xcassets in Resources */,
 				916379AA2347E07300046CA1 /* CardTableViewCell.xib in Resources */,
-				916379A42347DFB300046CA1 /* CollectionViewCell.xib in Resources */,
+				916379A42347DFB300046CA1 /* SetCollectionViewCell.xib in Resources */,
 				91255F7B2347DD6B00D01F83 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,6 +277,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9183D14D234817640066FF54 /* MaskView.swift in Sources */,
+				9183D14A2347F1500066FF54 /* SetsAndCardsStruct.swift in Sources */,
 				916379A32347DFB300046CA1 /* SetCollectionViewCell.swift in Sources */,
 				916379A92347E07300046CA1 /* CardTableViewCell.swift in Sources */,
 				91255F782347DD6B00D01F83 /* MTGSCController.swift in Sources */,
@@ -424,6 +432,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DF7FAJJH84;
 				INFOPLIST_FILE = "MTG Sets and Cards/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -431,7 +440,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ardevelopment.MTG-Sets-and-Cards";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -443,6 +452,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DF7FAJJH84;
 				INFOPLIST_FILE = "MTG Sets and Cards/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -450,7 +460,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ardevelopment.MTG-Sets-and-Cards";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -25,23 +25,28 @@ class MTGBigarClient {
         return url
     }
     
-    class func taskForGetRequest(url: URL?/*, handler: @escaping ([MTGExpacList]?) -> Void*/) {
+    class func taskForGetRequest(url: URL?, handler: @escaping (JSON?, Error?) -> Void) {
         
         guard let url = url else {return}
+        
         Alamofire.request(url).responseJSON(completionHandler: { (response) in
-            
-            let data = Data(response)
             
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                let data = json["data"]
-                for expansion in data["allExpansions"].array! {
-                    print(expansion["name"].stringValue)
+                DispatchQueue.main.async {
+                    handler(json, nil)
                 }
-                print("the count is: \(data["allExpansions"].array!.count)")
+//                let data = json["data"]
+//                for expansion in data["allExpansions"].array! {
+//                    print(expansion["name"].stringValue)
+//                }
+//                print("the count is: \(data["allExpansions"].array!.count)")
             case .failure(let error):
-                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    handler(nil, error)
+                }
+                //print(error.localizedDescription)
             }
         })
     }

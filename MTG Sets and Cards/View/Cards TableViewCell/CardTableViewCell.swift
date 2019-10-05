@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CardTableViewCell: UITableViewCell {
     
@@ -26,8 +27,9 @@ class CardTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupCell() {
-        
+    func setupCellWith(_ model: MtgCard) {
+        cardName.text = model.name
+        cardImage.sd_setImage(with: model.smallImageUrl, placeholderImage: UIImage(named: "placeholder"), options: .highPriority, completed: nil)
+        cardImage.layer.applyMask()
     }
-    
 }
