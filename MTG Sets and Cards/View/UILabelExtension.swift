@@ -10,19 +10,19 @@ import UIKit
 
 extension UILabel {
     
-    func changeTextWithAnimation(_ text: String, fadeOutIn: Bool = true) {
+    func changeTextWithAnimation(_ text: String, stackView: UIStackView? = nil) {
         
         UIView.animate(withDuration: 0.3, animations: {
-            if fadeOutIn {
             self.alpha = 0
-            } else {
-                self.alpha = 1
-            }
         }) { (finished) in
             self.text = text
             UIView.animate(withDuration: 0.3, animations: {
+                self.isHidden = self.text == "" ? true : false
                 self.alpha = 1
             })
+            guard let stackView = stackView else {return}
+            stackView.layoutSubviews()
+            stackView.layoutIfNeeded()
         }
     }
     

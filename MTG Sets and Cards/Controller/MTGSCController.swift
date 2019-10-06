@@ -11,6 +11,7 @@ import SwiftyJSON
 
 class MTGSCController: UIViewController {
     
+    @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             collectionView.backgroundColor = .clear
@@ -42,6 +43,7 @@ class MTGSCController: UIViewController {
         collectionView.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
+        setDetailsView.isHidden = true
         
         MTGBigarClient.taskForGetRequest(url: MTGBigarClient.generateUrl(), handler: handleSetsResponse(response:error:))
     }
@@ -193,6 +195,12 @@ extension MTGSCController: UICollectionViewDataSource {
 extension MTGSCController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        UIView.animate(withDuration: 0.5) {
+            self.setDetailsView.isHidden = false
+            self.mainStackView.layoutSubviews()
+            self.mainStackView.layoutIfNeeded()
+        }
         
         let model = collectionOfSets[indexPath.row]
         selectedSet = model

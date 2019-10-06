@@ -30,6 +30,8 @@
 		91FC3AC62349FB0800F3EA4E /* FiltersController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91FC3AC52349FB0800F3EA4E /* FiltersController.storyboard */; };
 		91FC3ACA2349FB3900F3EA4E /* CardPresenterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC3AC92349FB3900F3EA4E /* CardPresenterController.swift */; };
 		91FC3ACC234A156400F3EA4E /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC3ACB234A156400F3EA4E /* UIViewControllerExtension.swift */; };
+		91FC3ACE234A587C00F3EA4E /* LanguagesDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC3ACD234A587C00F3EA4E /* LanguagesDictionary.swift */; };
+		91FC3AD0234A6E0B00F3EA4E /* FiltersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC3ACF234A6E0B00F3EA4E /* FiltersController.swift */; };
 		B659767FFBB1A8D19486FCE3 /* Pods_MTG_Sets_and_Cards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E86716175261517654DDC6A /* Pods_MTG_Sets_and_Cards.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +63,8 @@
 		91FC3AC52349FB0800F3EA4E /* FiltersController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FiltersController.storyboard; sourceTree = "<group>"; };
 		91FC3AC92349FB3900F3EA4E /* CardPresenterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresenterController.swift; sourceTree = "<group>"; };
 		91FC3ACB234A156400F3EA4E /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		91FC3ACD234A587C00F3EA4E /* LanguagesDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesDictionary.swift; sourceTree = "<group>"; };
+		91FC3ACF234A6E0B00F3EA4E /* FiltersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersController.swift; sourceTree = "<group>"; };
 		9846E0CCD24C085434808F10 /* Pods-MTG Sets and Cards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTG Sets and Cards.debug.xcconfig"; path = "Target Support Files/Pods-MTG Sets and Cards/Pods-MTG Sets and Cards.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +134,7 @@
 			children = (
 				9163799F2347DF0D00046CA1 /* MTGBigarClient.swift */,
 				9183D1492347F1500066FF54 /* SetsAndCardsStruct.swift */,
+				91FC3ACD234A587C00F3EA4E /* LanguagesDictionary.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				91255F772347DD6B00D01F83 /* MTGSCController.swift */,
+				91FC3ACF234A6E0B00F3EA4E /* FiltersController.swift */,
 				91FC3AC92349FB3900F3EA4E /* CardPresenterController.swift */,
 			);
 			path = Controller;
@@ -164,9 +170,9 @@
 			children = (
 				91074E6123482CFD0081DE94 /* Fonts */,
 				91255F792347DD6B00D01F83 /* Main.storyboard */,
+				91FC3AC52349FB0800F3EA4E /* FiltersController.storyboard */,
 				91255F7C2347DD6C00D01F83 /* Assets.xcassets */,
 				91255F7E2347DD6C00D01F83 /* LaunchScreen.storyboard */,
-				91FC3AC52349FB0800F3EA4E /* FiltersController.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -322,6 +328,7 @@
 				91FC3ACA2349FB3900F3EA4E /* CardPresenterController.swift in Sources */,
 				9183D14D234817640066FF54 /* MaskView.swift in Sources */,
 				916379B023496C7700046CA1 /* SetDetailsView.swift in Sources */,
+				91FC3ACE234A587C00F3EA4E /* LanguagesDictionary.swift in Sources */,
 				9183D14A2347F1500066FF54 /* SetsAndCardsStruct.swift in Sources */,
 				916379AE2349680000046CA1 /* StringExtension.swift in Sources */,
 				91FC3AC22349980D00F3EA4E /* UILabelExtension.swift in Sources */,
@@ -333,6 +340,7 @@
 				91255F762347DD6B00D01F83 /* SceneDelegate.swift in Sources */,
 				91FC3ACC234A156400F3EA4E /* UIViewControllerExtension.swift in Sources */,
 				916379A02347DF0D00046CA1 /* MTGBigarClient.swift in Sources */,
+				91FC3AD0234A6E0B00F3EA4E /* FiltersController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

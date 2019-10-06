@@ -14,6 +14,7 @@ class SetDetailsView: UIView {
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var cardsCountLabel: UILabel!
     @IBOutlet weak var blockLabel: UILabel!
+    @IBOutlet weak var stackView: UIStackView!
     
     
     override init(frame: CGRect) {
@@ -52,16 +53,7 @@ class SetDetailsView: UIView {
         
         releaseDateLabel.changeTextWithAnimation("Release: \(model.releaseDate.dateFormatModifier(dateFormat: "MMM dd,yyyy"))")
         cardsCountLabel.changeTextWithAnimation(cardsCountText)
-        if model.block == "" {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                self.blockLabel.isHidden = true
-            }
-            
-        } else {
-            blockLabel.changeTextWithAnimation("Block: \(model.block!)")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                self.blockLabel.isHidden = false
-            }
-        }
+        blockLabel.changeTextWithAnimation(model.block ?? "", stackView: stackView)
+        
     }
 }
