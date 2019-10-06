@@ -22,13 +22,14 @@ class SetCollectionViewCell: UICollectionViewCell {
     
     func setupCellWith(_ set: MtgSet) {
         
-        let attributes: [NSAttributedString.Key : Any] = [
-            .strokeColor : UIColor.darkGray,
-            .strokeWidth : -2,
-            .font : UIFont.belerenLarge!
-        ]
+        if set.releaseDate.returnYearFromDate() < 2003 {
+            titleLabel.addLabelAttributes(font: UIFont.planeswalkerLarge, text: set.name)
+        } else {
+            titleLabel.addLabelAttributes(font: UIFont.belerenLarge, text: set.name)
+        }
         
-        titleLabel.attributedText = NSAttributedString(string: set.name, attributes: attributes)
+        
+        
         guard let defaultImage = UIImage(named: "pmei") else {return}
         let setIcon = UIImage(named: set.code.identifyPromoSets(setName: set.name)) ?? defaultImage
         setIconImageView.image = setIcon

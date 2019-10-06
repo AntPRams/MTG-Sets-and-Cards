@@ -32,6 +32,7 @@ class MTGSCController: UIViewController {
     
     var collectionOfSets:  [MtgSet] = []
     var collectionOfCards: [MtgCard] = []
+    var selectedSet: MtgSet!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,10 @@ class MTGSCController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setBackgroundImage()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     private func handleSetsResponse(response: JSON?, error: Error?) {
@@ -83,12 +88,13 @@ class MTGSCController: UIViewController {
             
             data["allExpansionCards"].array!.forEach({
                 
-                let name =     $0["name"]["en"].stringValue
+                let name =     $0["name"]["jp"].stringValue
                 let manaCost = $0["manacost"].stringValue
                 let artCropUrl = URL(string: $0["imageUrls"][0]["artcrop"].stringValue)
                 let largeImageUrl = URL(string: $0["imageUrls"][0]["normal"].stringValue)
                 let rarity = $0["rarity"].stringValue
                 let type = $0["type"]["en"].stringValue
+                let releaseDate = selectedSet.releaseDate
                 
                 let card = MtgCard(
                     name: name,
@@ -96,7 +102,8 @@ class MTGSCController: UIViewController {
                     artCropImageUrl: artCropUrl!,
                     manaCost: manaCost,
                     rarity: rarity,
-                    type: type
+                    type: type,
+                    setReleaseDate: releaseDate
                 )
                 collectionOfCards.append(card)
             })
@@ -188,8 +195,8 @@ extension MTGSCController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let model = collectionOfSets[indexPath.row]
+        selectedSet = model
         setDetailsView.setupLabelsWith(model)
-        
         MTGBigarClient.taskForGetRequest(
             url:     MTGBigarClient.generateUrl(for: "/\(model.id)"),
             handler: handleCardsResponse(response:error:)

@@ -52,7 +52,16 @@ class SetDetailsView: UIView {
         
         releaseDateLabel.changeTextWithAnimation("Release: \(model.releaseDate.dateFormatModifier(dateFormat: "MMM dd,yyyy"))")
         cardsCountLabel.changeTextWithAnimation(cardsCountText)
-        blockLabel.changeTextWithAnimation(model.block == "" ? "" : "Block: \(model.block!)")
-        
+        if model.block == "" {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.blockLabel.isHidden = true
+            }
+            
+        } else {
+            blockLabel.changeTextWithAnimation("Block: \(model.block!)")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.blockLabel.isHidden = false
+            }
+        }
     }
 }

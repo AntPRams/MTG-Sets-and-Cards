@@ -62,7 +62,11 @@ class CardTableViewCell: UITableViewCell {
     
     func setupCellWith(_ model: MtgCard) {
         
-        cardNameLabel.text = model.name
+        if model.setReleaseDate.returnYearFromDate() < 2003 {
+            cardNameLabel.addLabelAttributes(font: UIFont.planeswalkerMedium, text: model.name)
+        } else {
+            cardNameLabel.addLabelAttributes(font: UIFont.belerenMedium, text: model.name)
+        }
         cardTypeLabel.text = model.type
         rarityImageView.image = UIImage(named: model.rarity)!
         cardImageView.sd_imageIndicator = SDWebImageActivityIndicator.grayLarge

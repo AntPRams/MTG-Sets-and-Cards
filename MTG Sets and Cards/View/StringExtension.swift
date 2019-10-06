@@ -10,31 +10,31 @@ import Foundation
 
 extension String {
     
-    func dateFormatModifier(dateFormat: String) -> String{
-        
-        let isoDate = self
+    private func convertStringToDate(_ isoDate: String) -> Date {
+        let isoDate = isoDate
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "dd-MM-yyyy"
         dateFormatterGet.locale = NSLocale.current
-        let date = dateFormatterGet.date(from: isoDate)
+        guard let date = dateFormatterGet.date(from: isoDate) else {return Date()}
+        return date
+    }
+    
+    func dateFormatModifier(dateFormat: String) -> String{
         
         let dateFormatterSet = DateFormatter()
         dateFormatterSet.dateFormat = dateFormat
         
-        let dateToPresent = date!
+        let dateToPresent = convertStringToDate(self)
         
         return dateFormatterSet.string(from: dateToPresent)
-        
-        
     }
-    
-    func toFormattedDate(stringDate: String, withFormat format: String) -> String {
+  
+    func returnYearFromDate() -> Int {
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
-        guard let date = dateFormatter.date(from: self) else {return ""}
+        let date = convertStringToDate(self)
+        guard let year = Calendar.current.dateComponents([.year], from: date).year else {return 0}
         
-        return dateFormatter.string(from: date)
+        return year
     }
     
     func identifyPromoSets(setName: String) -> String{

@@ -5,6 +5,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Beleren.ttf">
+            <string>Beleren-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -21,8 +26,30 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nTf-yw-T8h">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xfl-9j-mVr">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvN-tT-McE">
+                                                <rect key="frame" x="304" y="4" width="90" height="33"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="90" id="wgl-FO-8aC"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Beleren-Bold" family="Beleren" pointSize="17"/>
+                                                <state key="normal" title="Apply filter">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fvN-tT-McE" secondAttribute="trailing" constant="20" symbolic="YES" id="1eg-h3-Gb3"/>
+                                            <constraint firstAttribute="bottom" secondItem="fvN-tT-McE" secondAttribute="bottom" constant="3" id="2Pm-yc-WIi"/>
+                                            <constraint firstAttribute="height" constant="40" id="7k7-Nu-nWC"/>
+                                            <constraint firstItem="fvN-tT-McE" firstAttribute="leading" secondItem="xfl-9j-mVr" secondAttribute="leading" priority="999" constant="316" id="m1g-CV-Eip"/>
+                                            <constraint firstItem="fvN-tT-McE" firstAttribute="top" secondItem="xfl-9j-mVr" secondAttribute="top" constant="4" id="tie-5E-dqb"/>
+                                        </constraints>
+                                    </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tfQ-nz-prL">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="220"/>
+                                        <rect key="frame" x="0.0" y="40" width="414" height="220"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="220" id="wFQ-tT-DUP"/>
@@ -35,14 +62,26 @@
                                         </collectionViewFlowLayout>
                                         <cells/>
                                     </collectionView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="separator" translatesAutoresizingMaskIntoConstraints="NO" id="8W2-hj-BFL">
+                                        <rect key="frame" x="0.0" y="260" width="414" height="10"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="sMo-XA-wLx"/>
+                                        </constraints>
+                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKZ-Vw-j85" customClass="SetDetailsView" customModule="MTG_Sets_and_Cards" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="220" width="414" height="80"/>
+                                        <rect key="frame" x="0.0" y="270" width="414" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="oei-sj-70x"/>
                                         </constraints>
                                     </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="separator" translatesAutoresizingMaskIntoConstraints="NO" id="9U3-3D-1IX">
+                                        <rect key="frame" x="0.0" y="350" width="414" height="10"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="vGf-Tv-obO"/>
+                                        </constraints>
+                                    </imageView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IWP-TI-GbT">
-                                        <rect key="frame" x="0.0" y="300" width="414" height="518"/>
+                                        <rect key="frame" x="0.0" y="360" width="414" height="458"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </tableView>
                                 </subviews>
@@ -114,4 +153,7 @@
             <point key="canvasLocation" x="726.08695652173924" y="119.86607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="separator" width="513" height="21"/>
+    </resources>
 </document>

@@ -25,4 +25,15 @@ extension UILabel {
             })
         }
     }
+    
+    func addLabelAttributes(font: UIFont, text: String){
+        
+        let attributes: [NSAttributedString.Key : Any] = [
+            .strokeColor : UIColor.darkGray,
+            .strokeWidth : -2,
+            .font : font
+        ]
+        
+       self.attributedText = NSAttributedString(string: text, attributes: attributes)
+    }
 }

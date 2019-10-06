@@ -26,4 +26,5 @@ struct MtgCard {
     let manaCost: String
     let rarity: String
     let type: String
+    let setReleaseDate: String
 }
