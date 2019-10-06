@@ -23,15 +23,14 @@ class SetCollectionViewCell: UICollectionViewCell {
     func setupCellWith(_ set: MtgSet) {
         
         let attributes: [NSAttributedString.Key : Any] = [
-            .strokeColor : UIColor.white,
-            .strokeWidth : -4,
+            .strokeColor : UIColor.darkGray,
+            .strokeWidth : -2,
             .font : UIFont.belerenLarge!
         ]
         
         titleLabel.attributedText = NSAttributedString(string: set.name, attributes: attributes)
-        //titleLabel.text = set.name
         guard let defaultImage = UIImage(named: "pmei") else {return}
-        let setIcon = UIImage(named: set.code) ?? defaultImage
+        let setIcon = UIImage(named: set.code.identifyPromoSets(setName: set.name)) ?? defaultImage
         setIconImageView.image = setIcon
     }
 

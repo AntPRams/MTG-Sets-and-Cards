@@ -10,45 +10,49 @@ import UIKit
 
 class SetDetailsView: UIView {
     
-    
-    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var cardsCountLabel: UILabel!
     @IBOutlet weak var blockLabel: UILabel!
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupViewWith()
+        
+            setupView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        if self.subviews.count == 0 {
-            setupViewWith()
-        } else {
-            for view in self.subviews {
-                if view.isKind(of: UIView.self) {
-                    view.removeFromSuperview()
-                }
-            }
-        }
+        
+            setupView()
     }
     
-    func setupViewWith(_ set: MtgSet? = nil) {
+    func setupView() {
         
         Bundle.main.loadNibNamed("SetDetailsView", owner: self, options: nil)
-        guard let content = contentView else {return}
-        contentView.frame = self.bounds
-        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        self.addSubview(contentView)
         
-        guard let mtgSet = set else {return}
-        var cardsCountText: String {
-            return mtgSet.cardCount == 1 ? "\(mtgSet.cardCount) card" : "\(mtgSet.cardCount) cards"
+        guard let container = containerView else {return}
+        container.backgroundColor = .clear
+        container.frame = self.bounds
+        container.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        self.addSubview(container)
+    }
+    
+    func setupLabelsWith(_ model: MtgSet) {
+        
+        [releaseDateLabel, cardsCountLabel, blockLabel].forEach{
+            $0?.font = UIFont.belerenMedium
+            $0?.textColor = UIColor.white
         }
         
-        //releaseDateLabel.text = mtgSet.releaseDate.toFormattedDate(withFormat: "MMM dd,yyyy")
-        cardsCountLabel.text = cardsCountText
-        blockLabel.text = mtgSet.block == nil ? "" : "Block: \(mtgSet.block ?? "")"
+        var cardsCountText: String {
+            return model.cardCount == 1 ? "\(model.cardCount) card" : "\(model.cardCount) cards"
+        }
+        
+        releaseDateLabel.changeTextWithAnimation("Release: \(model.releaseDate.dateFormatModifier(dateFormat: "MMM dd,yyyy"))")
+        cardsCountLabel.changeTextWithAnimation(cardsCountText)
+        blockLabel.changeTextWithAnimation(model.block == "" ? "" : "Block: \(model.block!)")
+        
     }
 }

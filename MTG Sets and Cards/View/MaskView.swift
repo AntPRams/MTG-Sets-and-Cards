@@ -11,6 +11,7 @@ import UIKit
 extension CALayer {
     
     func applyMask() {
+        
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.bounds
         gradientLayer.backgroundColor = UIColor.clear.cgColor

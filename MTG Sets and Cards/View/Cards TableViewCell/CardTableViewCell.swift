@@ -105,7 +105,6 @@ class CardTableViewCell: UITableViewCell {
             } else {
                 return
             }
-            
             stackView.layoutIfNeeded()
             stackView.layoutSubviews()
         })

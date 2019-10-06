@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 
 class MTGSCController: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             collectionView.backgroundColor = .clear
@@ -20,7 +20,6 @@ class MTGSCController: UIViewController {
     }
     
     @IBOutlet weak var setDetailsView: SetDetailsView!
-    
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -38,10 +37,10 @@ class MTGSCController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .black
-        
         collectionView.dataSource = self
         collectionView.delegate = self
         tableView.dataSource = self
+        tableView.delegate = self
         
         MTGBigarClient.taskForGetRequest(url: MTGBigarClient.generateUrl(), handler: handleSetsResponse(response:error:))
     }
@@ -74,7 +73,7 @@ class MTGSCController: UIViewController {
         }
     }
     
-    func handleCardsResponse(response: JSON?, error: Error?) {
+    private func handleCardsResponse(response: JSON?, error: Error?) {
         
         if error == nil {
             guard let response = response else {return}
@@ -84,12 +83,12 @@ class MTGSCController: UIViewController {
             
             data["allExpansionCards"].array!.forEach({
                 
-                let name =     $0["name"]["jp"].stringValue
+                let name =     $0["name"]["en"].stringValue
                 let manaCost = $0["manacost"].stringValue
                 let artCropUrl = URL(string: $0["imageUrls"][0]["artcrop"].stringValue)
-                let largeImageUrl = URL(string: $0["imageUrls"][0]["large"].stringValue)
+                let largeImageUrl = URL(string: $0["imageUrls"][0]["normal"].stringValue)
                 let rarity = $0["rarity"].stringValue
-                let type = $0["type"]["jp"].stringValue
+                let type = $0["type"]["en"].stringValue
                 
                 let card = MtgCard(
                     name: name,
@@ -147,6 +146,19 @@ extension MTGSCController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let card = collectionOfCards[indexPath.row]
+        
+        if let controller = storyboard?.instantiateViewController(identifier: "CardPresenterController") as? CardPresenterController {
+            
+            controller.stringUrl = card.largeImageUrl
+            controller.modalPresentationStyle = .overCurrentContext
+            controller.modalTransitionStyle = .crossDissolve
+            present(controller, animated: true)
+            
+        }
+    }
 }
 
 extension MTGSCController: UICollectionViewDataSource {
@@ -176,7 +188,8 @@ extension MTGSCController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let model = collectionOfSets[indexPath.row]
-        setDetailsView.setupViewWith(model)
+        setDetailsView.setupLabelsWith(model)
+        
         MTGBigarClient.taskForGetRequest(
             url:     MTGBigarClient.generateUrl(for: "/\(model.id)"),
             handler: handleCardsResponse(response:error:)

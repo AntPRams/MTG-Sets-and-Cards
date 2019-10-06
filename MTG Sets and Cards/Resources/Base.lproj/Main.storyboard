@@ -46,6 +46,9 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </tableView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="xKZ-Vw-j85" firstAttribute="centerX" secondItem="nTf-yw-T8h" secondAttribute="centerX" id="5yw-IG-hhF"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -66,6 +69,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-57.971014492753625" y="118.52678571428571"/>
+        </scene>
+        <!--Card Presenter Controller-->
+        <scene sceneID="ZX9-Z2-s86">
+            <objects>
+                <viewController storyboardIdentifier="CardPresenterController" id="dqi-wb-DSL" customClass="CardPresenterController" customModule="MTG_Sets_and_Cards" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Yy5-VD-A5g"/>
+                        <viewControllerLayoutGuide type="bottom" id="jT4-Hq-fJB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6cc-IY-bSh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ge8-TB-oq8">
+                                <rect key="frame" x="20" y="144" width="374" height="618"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NEC-I1-Fpm">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <connections>
+                                    <action selector="dismissControllerOnScreenTap:" destination="dqi-wb-DSL" eventType="touchUpInside" id="aU9-nv-b1Z"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.015525666996836662" green="0.005885713268071413" blue="0.0058822608552873135" alpha="0.30660815926285478" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="NEC-I1-Fpm" secondAttribute="trailing" id="5N9-l4-3RW"/>
+                            <constraint firstItem="ge8-TB-oq8" firstAttribute="top" secondItem="Yy5-VD-A5g" secondAttribute="bottom" constant="100" id="B4H-Fp-xgu"/>
+                            <constraint firstItem="ge8-TB-oq8" firstAttribute="centerX" secondItem="6cc-IY-bSh" secondAttribute="centerX" id="MF7-HX-zL1"/>
+                            <constraint firstItem="jT4-Hq-fJB" firstAttribute="top" secondItem="ge8-TB-oq8" secondAttribute="bottom" constant="100" id="Ucl-Gf-gDl"/>
+                            <constraint firstItem="NEC-I1-Fpm" firstAttribute="top" secondItem="6cc-IY-bSh" secondAttribute="top" id="dVA-1E-Ruq"/>
+                            <constraint firstItem="NEC-I1-Fpm" firstAttribute="leading" secondItem="6cc-IY-bSh" secondAttribute="leading" id="ijR-Uo-1Wq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ge8-TB-oq8" secondAttribute="trailing" id="mlt-HQ-fFS"/>
+                            <constraint firstAttribute="bottom" secondItem="NEC-I1-Fpm" secondAttribute="bottom" id="p0s-16-9z8"/>
+                            <constraint firstItem="ge8-TB-oq8" firstAttribute="leading" secondItem="6cc-IY-bSh" secondAttribute="leadingMargin" id="sV7-1K-Hwi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cardImageView" destination="ge8-TB-oq8" id="4dx-St-JPP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bm9-uy-6K6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="726.08695652173924" y="119.86607142857142"/>
         </scene>
     </scenes>
 </document>
