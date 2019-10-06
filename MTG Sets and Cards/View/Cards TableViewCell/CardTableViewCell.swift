@@ -21,23 +21,26 @@ class CardTableViewCell: UITableViewCell {
             containerView.layer.borderColor = UIColor.black.cgColor
         }
     }
-    @IBOutlet weak var cardImage: UIImageView! {
+    @IBOutlet weak var cardImageView: UIImageView! {
         didSet {
-        cardImage.layer.cornerRadius = 12
+        cardImageView.layer.cornerRadius = 12
         
         }
     }
     @IBOutlet weak var rarityImageView: UIImageView!
-    @IBOutlet weak var cardName: UILabel! {
+    
+    @IBOutlet weak var cardNameLabel: UILabel! {
         didSet {
-            cardName.font = UIFont.belerenMedium
+            cardNameLabel.font = UIFont.belerenMedium
         }
     }
     @IBOutlet weak var stackView: UIStackView!
     
+    @IBOutlet weak var cardTypeLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        cardImage.translatesAutoresizingMaskIntoConstraints = false
+        cardImageView.translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .clear
     }
     
@@ -58,11 +61,13 @@ class CardTableViewCell: UITableViewCell {
     }
     
     func setupCellWith(_ model: MtgCard) {
-        cardName.text = model.name
+        
+        cardNameLabel.text = model.name
+        cardTypeLabel.text = model.type
         rarityImageView.image = UIImage(named: model.rarity)!
-        cardImage.sd_imageIndicator = SDWebImageActivityIndicator.grayLarge
-        cardImage.sd_setImage(with: model.artCropImageUrl, completed: nil)
-        cardImage.layer.applyMask()
+        cardImageView.sd_imageIndicator = SDWebImageActivityIndicator.grayLarge
+        cardImageView.sd_setImage(with: model.artCropImageUrl, completed: nil)
+        cardImageView.layer.applyMask()
         applyManaCostImages(model.manaCost)
     }
     

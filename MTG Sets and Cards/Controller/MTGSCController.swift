@@ -19,6 +19,9 @@ class MTGSCController: UIViewController {
         }
     }
     
+    @IBOutlet weak var setDetailsView: SetDetailsView!
+    
+    
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.separatorStyle = .none
@@ -75,16 +78,27 @@ class MTGSCController: UIViewController {
         
         if error == nil {
             guard let response = response else {return}
+            
             let data = response["data"]
             collectionOfCards.removeAll()
+            
             data["allExpansionCards"].array!.forEach({
                 
-                let name =     $0["name"]["en"].stringValue
+                let name =     $0["name"]["jp"].stringValue
                 let manaCost = $0["manacost"].stringValue
-                let imageURL = URL(string: $0["imageUrls"][0]["artcrop"].stringValue)
+                let artCropUrl = URL(string: $0["imageUrls"][0]["artcrop"].stringValue)
+                let largeImageUrl = URL(string: $0["imageUrls"][0]["large"].stringValue)
                 let rarity = $0["rarity"].stringValue
-                let card =     MtgCard(name: name, smallImageUrl: imageURL!, artCropImageUrl: imageURL!, manaCost: manaCost, rarity: rarity)
+                let type = $0["type"]["jp"].stringValue
                 
+                let card = MtgCard(
+                    name: name,
+                    largeImageUrl: largeImageUrl!,
+                    artCropImageUrl: artCropUrl!,
+                    manaCost: manaCost,
+                    rarity: rarity,
+                    type: type
+                )
                 collectionOfCards.append(card)
             })
         } else {
@@ -131,7 +145,7 @@ extension MTGSCController: UITableViewDataSource {
 
 extension MTGSCController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
+        return 100
     }
 }
 
@@ -162,6 +176,7 @@ extension MTGSCController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let model = collectionOfSets[indexPath.row]
+        setDetailsView.setupViewWith(model)
         MTGBigarClient.taskForGetRequest(
             url:     MTGBigarClient.generateUrl(for: "/\(model.id)"),
             handler: handleCardsResponse(response:error:)

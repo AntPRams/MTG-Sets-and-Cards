@@ -19,6 +19,9 @@
 		916379A42347DFB300046CA1 /* SetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 916379A22347DFB300046CA1 /* SetCollectionViewCell.xib */; };
 		916379A92347E07300046CA1 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916379A72347E07300046CA1 /* CardTableViewCell.swift */; };
 		916379AA2347E07300046CA1 /* CardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 916379A82347E07300046CA1 /* CardTableViewCell.xib */; };
+		916379AE2349680000046CA1 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916379AD2349680000046CA1 /* StringExtension.swift */; };
+		916379B023496C7700046CA1 /* SetDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916379AF23496C7700046CA1 /* SetDetailsView.swift */; };
+		916379B223496D4100046CA1 /* SetDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 916379B123496D4100046CA1 /* SetDetailsView.xib */; };
 		9183D14A2347F1500066FF54 /* SetsAndCardsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183D1492347F1500066FF54 /* SetsAndCardsStruct.swift */; };
 		9183D14D234817640066FF54 /* MaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183D14C234817640066FF54 /* MaskView.swift */; };
 		91FC3ABF2348332000F3EA4E /* Beleren.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91FC3ABE2348332000F3EA4E /* Beleren.ttf */; };
@@ -42,6 +45,9 @@
 		916379A22347DFB300046CA1 /* SetCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetCollectionViewCell.xib; sourceTree = "<group>"; };
 		916379A72347E07300046CA1 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		916379A82347E07300046CA1 /* CardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardTableViewCell.xib; sourceTree = "<group>"; };
+		916379AD2349680000046CA1 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		916379AF23496C7700046CA1 /* SetDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDetailsView.swift; sourceTree = "<group>"; };
+		916379B123496D4100046CA1 /* SetDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetDetailsView.xib; sourceTree = "<group>"; };
 		9183D1492347F1500066FF54 /* SetsAndCardsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsAndCardsStruct.swift; sourceTree = "<group>"; };
 		9183D14C234817640066FF54 /* MaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskView.swift; sourceTree = "<group>"; };
 		91FC3ABE2348332000F3EA4E /* Beleren.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Beleren.ttf; sourceTree = "<group>"; };
@@ -120,9 +126,12 @@
 		91255F882347DD7A00D01F83 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				916379AF23496C7700046CA1 /* SetDetailsView.swift */,
+				916379B123496D4100046CA1 /* SetDetailsView.xib */,
 				916379A62347DFDC00046CA1 /* Cards TableViewCell */,
 				916379A52347DFCF00046CA1 /* Sets CollectionViewCell */,
 				9183D14C234817640066FF54 /* MaskView.swift */,
+				916379AD2349680000046CA1 /* StringExtension.swift */,
 				91074E6423482DD80081DE94 /* MtgFont.swift */,
 			);
 			path = View;
@@ -236,6 +245,7 @@
 			files = (
 				91255F802347DD6C00D01F83 /* LaunchScreen.storyboard in Resources */,
 				91255F7D2347DD6C00D01F83 /* Assets.xcassets in Resources */,
+				916379B223496D4100046CA1 /* SetDetailsView.xib in Resources */,
 				916379AA2347E07300046CA1 /* CardTableViewCell.xib in Resources */,
 				916379A42347DFB300046CA1 /* SetCollectionViewCell.xib in Resources */,
 				91255F7B2347DD6B00D01F83 /* Main.storyboard in Resources */,
@@ -293,7 +303,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9183D14D234817640066FF54 /* MaskView.swift in Sources */,
+				916379B023496C7700046CA1 /* SetDetailsView.swift in Sources */,
 				9183D14A2347F1500066FF54 /* SetsAndCardsStruct.swift in Sources */,
+				916379AE2349680000046CA1 /* StringExtension.swift in Sources */,
 				916379A32347DFB300046CA1 /* SetCollectionViewCell.swift in Sources */,
 				916379A92347E07300046CA1 /* CardTableViewCell.swift in Sources */,
 				91074E6523482DD80081DE94 /* MtgFont.swift in Sources */,

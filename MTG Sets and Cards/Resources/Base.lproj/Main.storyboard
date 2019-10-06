@@ -35,15 +35,14 @@
                                         </collectionViewFlowLayout>
                                         <cells/>
                                     </collectionView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKZ-Vw-j85">
-                                        <rect key="frame" x="0.0" y="220" width="414" height="120"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKZ-Vw-j85" customClass="SetDetailsView" customModule="MTG_Sets_and_Cards" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="220" width="414" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="oei-sj-70x"/>
+                                            <constraint firstAttribute="height" constant="80" id="oei-sj-70x"/>
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IWP-TI-GbT">
-                                        <rect key="frame" x="0.0" y="340" width="414" height="478"/>
+                                        <rect key="frame" x="0.0" y="300" width="414" height="518"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </tableView>
                                 </subviews>
@@ -60,6 +59,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="collectionView" destination="tfQ-nz-prL" id="tcg-dX-neM"/>
+                        <outlet property="setDetailsView" destination="xKZ-Vw-j85" id="x9V-8u-OMy"/>
                         <outlet property="tableView" destination="IWP-TI-GbT" id="OlV-IK-ul9"/>
                     </connections>
                 </viewController>

@@ -21,8 +21,9 @@ struct MtgSet {
 struct MtgCard {
     
     let name: String
-    let smallImageUrl: URL?
+    let largeImageUrl: URL?
     let artCropImageUrl: URL?
     let manaCost: String
     let rarity: String
+    let type: String
 }
