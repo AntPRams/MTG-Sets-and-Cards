@@ -53,6 +53,7 @@ class MTGSCController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         setBackgroundImage()
     }
     
@@ -89,7 +90,7 @@ class MTGSCController: UIViewController {
             }
             collectionView.reloadData()
         } else {
-            print(error!.localizedDescription)
+            presentAlert(message: error?.localizedDescription)
         }
     }
     
@@ -103,12 +104,12 @@ class MTGSCController: UIViewController {
             
             data["allExpansionCards"].array!.forEach({
                 
-                let name =     $0["name"]["jp"].stringValue
+                let name =     $0["name"][languageCurrentlySelected].stringValue
                 let manaCost = $0["manacost"].stringValue
                 let artCropUrl = URL(string: $0["imageUrls"][0]["artcrop"].stringValue)
                 let largeImageUrl = URL(string: $0["imageUrls"][0]["normal"].stringValue)
                 let rarity = $0["rarity"].stringValue
-                let type = $0["type"]["en"].stringValue
+                let type = $0["type"][languageCurrentlySelected].stringValue
                 let releaseDate = selectedSet.releaseDate
                 
                 let card = MtgCard(
@@ -123,7 +124,7 @@ class MTGSCController: UIViewController {
                 collectionOfCards.append(card)
             })
         } else {
-            print(error!.localizedDescription)
+            presentAlert(message: error?.localizedDescription)
         }
         tableView.reloadData()
     }
@@ -158,7 +159,9 @@ extension MTGSCController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CardTableViewCell.identifier) as! CardTableViewCell
         let model = collectionOfCards[indexPath.row]
-        
+        cell.handleError = { (error) in
+            self.presentAlert(message: error?.localizedDescription)
+        }
         cell.setupCellWith(model)
         return cell
     }
@@ -259,7 +262,10 @@ extension MTGSCController: UICollectionViewDelegateFlowLayout {
 }
 
 extension MTGSCController: FiltersControllerDelegate {
+    
     func filtersController(didApplyFiltersIn array: [MtgSet]) {
         filteredCollectionOfSets = array
+        
+        collectionView.reloadData()
     }
 }

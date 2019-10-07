@@ -14,6 +14,10 @@ protocol FiltersControllerDelegate: class {
 
 class FiltersController: UIViewController {
     
+    
+    @IBOutlet weak var newPicker: UIPickerView!
+    @IBOutlet weak var newToolBar: UIToolbar!
+    
     @IBOutlet weak var mainView: UIView! {
         didSet {
             mainView.applyLayerStyle(
@@ -33,17 +37,24 @@ class FiltersController: UIViewController {
         }
     }
     
-    @IBOutlet weak var languageButton: UIButton!
+
     @IBOutlet weak var setNameTextField: UITextField!
     @IBOutlet weak var yeartFirstTextField: UITextField!
     @IBOutlet weak var yearSecondTextField: UITextField!
     @IBOutlet weak var okButton: UIButton!
+    @IBOutlet weak var languageTextField: UITextField! {
+        didSet {
+            languageTextField.text = languages[languageCurrentlySelected]
+        }
+    }
     
     var stringText = [100, 120, 130, 140, 150]
     var collectionOfSets: [MtgSet] = []
-    var filteredCollectionOfSets: [MtgSet] = []
     var releaseYears: [Int] {
         return (collectionOfSets.map {$0.releaseDate.returnYearFromDate()}).removeDuplicates()
+    }
+    var setNames: [String] {
+        return collectionOfSets.map {$0.name}
     }
     
     weak var delegate: FiltersControllerDelegate?
@@ -51,25 +62,23 @@ class FiltersController: UIViewController {
     var picker = UIPickerView()
     let toolbar = UIToolbar()
     var activeTextField: UITextField?
-     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        newToolBar.isHidden = true
+        newPicker.isHidden = true
         setOkButtonState()
-        [setNameTextField, yeartFirstTextField, yearSecondTextField].forEach{
+        [setNameTextField, yeartFirstTextField, yearSecondTextField, languageTextField].forEach{
             $0?.delegate = self
-            $0?.font = UIFont.belerenSmall
+            $0?.textColor = .white
+            $0?.font = UIFont.belerenMedium
             $0?.keyboardAppearance = .dark
-            $0?.inputView = picker
-            $0?.inputAccessoryView = toolbar
+            $0?.inputView = newPicker
+            $0?.inputAccessoryView = newToolBar
         }
         setupPickerView()
-        setupPickerToolBar()
     }
     
-    @IBAction func chooseLanguageButton(_ sender: Any) {
-        
-    }
     
     @IBAction func cancelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -77,33 +86,20 @@ class FiltersController: UIViewController {
     
     @IBAction func okButton(_ sender: Any) {
         
-        delegate?.filtersController(didApplyFiltersIn: filteredCollectionOfSets)
+        delegate?.filtersController(didApplyFiltersIn: filter())
+        UserDefaults.standard.set(languages.key(for: languageTextField.text!), forKey: "Cards Language")
+        dismiss(animated: true, completion: nil)
     }
+    
+   
     
     func setupPickerView() {
-        picker.delegate = self
-        picker.dataSource = self
-        picker.delegate?.pickerView?(picker, didSelectRow: 0, inComponent: 0)
-        picker.setValue(UIColor.clear, forKey: "backgroundColor")
-        picker.setValue(UIColor.white, forKey: "textColor")
-        picker.alpha = 0.7
-    }
-    
-    func setupPickerToolBar() {
-        
-        toolbar.sizeToFit()
-        let okButton = UIBarButtonItem(title: "Ok", style: .done, target: self, action: #selector(okToolbarButtonTapped))
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(cancelToolbarButtonTapped))
-        toolbar.setItems([cancelButton, flexSpace, okButton], animated: true)
-        
-        [cancelButton, okButton].forEach{
-            $0.setAppearance(with: .belerenSmall, color: .white, for: .normal)
-            $0.setAppearance(with: .belerenSmall, color: .darkGray, for: .highlighted)
-            
-        }
-        toolbar.isUserInteractionEnabled = true
-        
+        newPicker.delegate = self
+        newPicker.dataSource = self
+        newPicker.delegate?.pickerView?(newPicker, didSelectRow: 0, inComponent: 0)
+        newPicker.setValue(UIColor.clear, forKey: "backgroundColor")
+        newPicker.setValue(UIColor.white, forKey: "textColor")
+        newPicker.alpha = 0.7
     }
     
     @objc func okToolbarButtonTapped() {
@@ -116,11 +112,7 @@ class FiltersController: UIViewController {
         setOkButtonState()
     }
     
-    private func setupFilteredArray() {
-        //if [setNameTextField, yeartFirstTextField, yearSecondTextField].for
-        
-    }
-    
+   
     func setOkButtonState() {
         for textField in [setNameTextField, yeartFirstTextField, yearSecondTextField] {
             if textField!.text == "" {
@@ -131,16 +123,59 @@ class FiltersController: UIViewController {
             }
         }
     }
+    
+    func filter() -> [MtgSet]{
+        
+        var filteredArray: [MtgSet] = []
+        
+        if yeartFirstTextField.text != "" && yearSecondTextField.text != "" {
+            
+            if let firstChoosenYear = Int(yeartFirstTextField.text!), let secondChoosenYear = Int(yearSecondTextField.text!) {
+                let range = firstChoosenYear...secondChoosenYear
+                
+                collectionOfSets.forEach {
+                    if range.contains($0.releaseDate.returnYearFromDate()) {
+                        filteredArray.append($0)
+                        
+                    }
+                }
+            }
+        } else if yeartFirstTextField.text != "" {
+            
+            if let year = Int(yeartFirstTextField.text!) {
+                collectionOfSets.forEach {
+                    if $0.releaseDate.returnYearFromDate() == year {
+                        filteredArray.append($0)
+                    }
+                }
+            }
+        } else if setNameTextField.text != "" {
+            if let setName = setNameTextField.text {
+                collectionOfSets.forEach {
+                    if $0.name == setName {
+                        filteredArray.append($0)
+                    }
+                }
+            }
+        } else {
+            
+        }
+        return filteredArray
+    }
 }
+
 
 extension FiltersController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        newToolBar.isHidden = false
+        newPicker.isHidden = false
         activeTextField = textField
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print("call")
+        newToolBar.isHidden = true
+        newPicker.isHidden = true
         setOkButtonState()
     }
     
@@ -148,6 +183,16 @@ extension FiltersController: UITextFieldDelegate {
         textField.resignFirstResponder()
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if textField == yeartFirstTextField || textField == yearSecondTextField {
+            let allowedCharacters = CharacterSet(charactersIn: "0123456789")
+            let characterSet = CharacterSet(charactersIn: string)
+            return allowedCharacters.isSuperset(of: characterSet)
+        } else {
+            return true
+        }
+    }
 }
 
 extension FiltersController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -157,16 +202,38 @@ extension FiltersController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return releaseYears.count
+        if activeTextField == yeartFirstTextField || activeTextField == yearSecondTextField {
+            return releaseYears.count
+        } else if activeTextField == setNameTextField {
+            return setNames.count
+        } else {
+            return languages.values.count
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(releaseYears[row])
+        if activeTextField == yeartFirstTextField || activeTextField == yearSecondTextField {
+            return String(releaseYears[row])
+        } else if activeTextField == setNameTextField {
+            return setNames[row]
+        } else {
+            return Array(languages.values)[row]
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let choosenValue = releaseYears[pickerView.selectedRow(inComponent: 0)]
-        activeTextField?.text = String(choosenValue)
+        
+        var choosenValue = ""
+        
+        if activeTextField == yeartFirstTextField || activeTextField == yearSecondTextField {
+            choosenValue = String(releaseYears[pickerView.selectedRow(inComponent: 0)])
+        } else if activeTextField == setNameTextField {
+            choosenValue = setNames[pickerView.selectedRow(inComponent: 0)]
+        } else {
+            choosenValue = Array(languages.values)[pickerView.selectedRow(inComponent: 0)]
+        }
+        
+        activeTextField?.text = choosenValue
         pickerView.resignFirstResponder()
     }
     

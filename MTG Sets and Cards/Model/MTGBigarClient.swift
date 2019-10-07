@@ -21,7 +21,6 @@ class MTGBigarClient {
         components.path = "/mtg/cardjson/expansions\(expansion ?? "")"
         
         guard let url = components.url else {return nil}
-        print(url)
         return url
     }
     
@@ -44,7 +43,6 @@ class MTGBigarClient {
                 DispatchQueue.main.async {
                     handler(nil, error)
                 }
-                
             }
         })
     }

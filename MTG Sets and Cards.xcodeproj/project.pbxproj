@@ -25,6 +25,7 @@
 		916379B223496D4100046CA1 /* SetDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 916379B123496D4100046CA1 /* SetDetailsView.xib */; };
 		9183D14A2347F1500066FF54 /* SetsAndCardsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183D1492347F1500066FF54 /* SetsAndCardsStruct.swift */; };
 		9183D14D234817640066FF54 /* MaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183D14C234817640066FF54 /* MaskView.swift */; };
+		91ED5223234ADF8A007F6255 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ED5222234ADF8A007F6255 /* DictionaryExtension.swift */; };
 		91FC3ABF2348332000F3EA4E /* Beleren.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91FC3ABE2348332000F3EA4E /* Beleren.ttf */; };
 		91FC3AC22349980D00F3EA4E /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC3AC12349980D00F3EA4E /* UILabelExtension.swift */; };
 		91FC3AC62349FB0800F3EA4E /* FiltersController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91FC3AC52349FB0800F3EA4E /* FiltersController.storyboard */; };
@@ -61,6 +62,7 @@
 		916379B123496D4100046CA1 /* SetDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetDetailsView.xib; sourceTree = "<group>"; };
 		9183D1492347F1500066FF54 /* SetsAndCardsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsAndCardsStruct.swift; sourceTree = "<group>"; };
 		9183D14C234817640066FF54 /* MaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskView.swift; sourceTree = "<group>"; };
+		91ED5222234ADF8A007F6255 /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		91FC3ABE2348332000F3EA4E /* Beleren.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Beleren.ttf; sourceTree = "<group>"; };
 		91FC3AC12349980D00F3EA4E /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		91FC3AC52349FB0800F3EA4E /* FiltersController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FiltersController.storyboard; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				91FC3AD9234AD8C500F3EA4E /* Set Details View */,
 				916379A62347DFDC00046CA1 /* Cards TableViewCell */,
 				916379A52347DFCF00046CA1 /* Sets CollectionViewCell */,
+				91ED5222234ADF8A007F6255 /* DictionaryExtension.swift */,
 				9183D14C234817640066FF54 /* MaskView.swift */,
 				916379AD2349680000046CA1 /* StringExtension.swift */,
 				91074E6423482DD80081DE94 /* MtgFont.swift */,
@@ -349,6 +352,7 @@
 				91FC3ACE234A587C00F3EA4E /* LanguagesDictionary.swift in Sources */,
 				9183D14A2347F1500066FF54 /* SetsAndCardsStruct.swift in Sources */,
 				91FC3AD5234AC2F500F3EA4E /* UIViewExtension.swift in Sources */,
+				91ED5223234ADF8A007F6255 /* DictionaryExtension.swift in Sources */,
 				916379AE2349680000046CA1 /* StringExtension.swift in Sources */,
 				91FC3AC22349980D00F3EA4E /* UILabelExtension.swift in Sources */,
 				916379A32347DFB300046CA1 /* SetCollectionViewCell.swift in Sources */,

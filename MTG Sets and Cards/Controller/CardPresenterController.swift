@@ -16,7 +16,6 @@ class CardPresenterController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(stringUrl)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -25,7 +24,7 @@ class CardPresenterController: UIViewController {
         cardImageView.sd_imageIndicator = SDWebImageActivityIndicator.grayLarge
         cardImageView.sd_setImage(with: stringUrl) { (image, error, cache, url) in
             if error != nil {
-                print(error?.localizedDescription)
+                self.presentAlert(message: error?.localizedDescription)
             } else {
                 self.cardImageView.image = image
             }

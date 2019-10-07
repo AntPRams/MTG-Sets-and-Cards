@@ -20,3 +20,7 @@ let languages: [String:String] = [
     "ru" : "Russian",
     "es" : "Spanish"
 ]
+
+let languageCurrentlySelected = UserDefaults.standard.string(forKey: "Cards Language")!
+let languageKey = languages.key(for: languageCurrentlySelected)
+

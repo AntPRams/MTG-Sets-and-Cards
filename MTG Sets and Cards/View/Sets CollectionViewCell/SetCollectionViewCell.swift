@@ -23,9 +23,9 @@ class SetCollectionViewCell: UICollectionViewCell {
     func setupCellWith(_ set: MtgSet) {
         
         if set.releaseDate.returnYearFromDate() < 2003 {
-            titleLabel.addLabelAttributes(font: UIFont.planeswalkerLarge, text: set.name)
+            titleLabel.addLabelAttributes(font: UIFont.planeswalkerLarge, text: set.name, color: .white)
         } else {
-            titleLabel.addLabelAttributes(font: UIFont.belerenLarge, text: set.name)
+            titleLabel.addLabelAttributes(font: UIFont.belerenLarge, text: set.name, color: .white)
         }
         
         

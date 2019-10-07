@@ -13,6 +13,8 @@ class CardTableViewCell: UITableViewCell {
     
     static let identifier = "CardTableViewCell"
     
+    var handleError: ((Error?)->Void)?
+    
     @IBOutlet weak var containerView: UIView! {
         didSet {
             containerView.backgroundColor = UIColor.white.withAlphaComponent(0.8)
@@ -28,12 +30,7 @@ class CardTableViewCell: UITableViewCell {
         }
     }
     @IBOutlet weak var rarityImageView: UIImageView!
-    
-    @IBOutlet weak var cardNameLabel: UILabel! {
-        didSet {
-            cardNameLabel.font = UIFont.belerenMedium
-        }
-    }
+    @IBOutlet weak var cardNameLabel: UILabel!
     @IBOutlet weak var stackView: UIStackView!
     
     @IBOutlet weak var cardTypeLabel: UILabel!
@@ -63,14 +60,20 @@ class CardTableViewCell: UITableViewCell {
     func setupCellWith(_ model: MtgCard) {
         
         if model.setReleaseDate.returnYearFromDate() < 2003 {
-            cardNameLabel.addLabelAttributes(font: UIFont.planeswalkerMedium, text: model.name)
+            cardNameLabel.addLabelAttributes(font: UIFont.planeswalkerMedium, text: model.name, color: .black)
         } else {
-            cardNameLabel.addLabelAttributes(font: UIFont.belerenMedium, text: model.name)
+            cardNameLabel.addLabelAttributes(font: UIFont.belerenMedium, text: model.name, color: .black)
         }
         cardTypeLabel.text = model.type
         rarityImageView.image = UIImage(named: model.rarity)!
         cardImageView.sd_imageIndicator = SDWebImageActivityIndicator.grayLarge
-        cardImageView.sd_setImage(with: model.artCropImageUrl, completed: nil)
+        cardImageView.sd_setImage(with: model.artCropImageUrl) { (image, error, cache, url) in
+            if error != nil {
+                self.handleError?(error)
+            } else {
+                self.cardImageView.image = image
+            }
+        }
         cardImageView.layer.applyMask()
         applyManaCostImages(model.manaCost)
     }
@@ -89,7 +92,6 @@ class CardTableViewCell: UITableViewCell {
         let cost = components.filter({!$0.isEmpty})
         
         cost.forEach({ (manaCostSymbol) in
-            print(cost.count)
             let imageView = UIImageView()
             imageView.backgroundColor = .clear
             imageView.contentMode = ContentMode.scaleAspectFit
