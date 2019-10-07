@@ -11,33 +11,39 @@ import SDWebImage
 
 class CardTableViewCell: UITableViewCell {
     
-    static let identifier = "CardTableViewCell"
-    
-    var handleError: ((Error?)->Void)?
+    //MARK: Outlets
     
     @IBOutlet weak var containerView: UIView! {
         didSet {
             containerView.backgroundColor = UIColor.white.withAlphaComponent(0.8)
-            containerView.layer.cornerRadius = 12
-            containerView.layer.borderWidth = 5
-            containerView.layer.borderColor = UIColor.black.cgColor
+            containerView.applyLayerStyle(
+                cornerRadius: 12,
+                borderWidth:  5,
+                borderColor:  UIColor.black.cgColor)
         }
     }
+    
     @IBOutlet weak var cardImageView: UIImageView! {
         didSet {
         cardImageView.layer.cornerRadius = 12
-        
         }
     }
-    @IBOutlet weak var rarityImageView: UIImageView!
-    @IBOutlet weak var cardNameLabel: UILabel!
-    @IBOutlet weak var stackView: UIStackView!
     
-    @IBOutlet weak var cardTypeLabel: UILabel!
+    @IBOutlet weak var rarityImageView: UIImageView!
+    @IBOutlet weak var cardNameLabel:   UILabel!
+    @IBOutlet weak var stackView:       UIStackView!
+    @IBOutlet weak var cardTypeLabel:   UILabel!
+    
+    //MARK: Properties
+    
+    var handleError: ((Error?)->Void)?
+    static let identifier = "CardTableViewCell"
+    
+    //MARK: Awake!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        cardImageView.translatesAutoresizingMaskIntoConstraints = false
+        
         backgroundColor = .clear
     }
     
@@ -51,11 +57,7 @@ class CardTableViewCell: UITableViewCell {
         }
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    //MARK: Methods
     
     func setupCellWith(_ model: MtgCard) {
         

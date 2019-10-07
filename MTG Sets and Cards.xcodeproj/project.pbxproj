@@ -15,6 +15,15 @@
 		91255F7D2347DD6C00D01F83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91255F7C2347DD6C00D01F83 /* Assets.xcassets */; };
 		91255F802347DD6C00D01F83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91255F7E2347DD6C00D01F83 /* LaunchScreen.storyboard */; };
 		913C3F51234A397400F3C4C3 /* Planewalker.otf in Resources */ = {isa = PBXBuildFile; fileRef = 913C3F50234A397400F3C4C3 /* Planewalker.otf */; };
+		913C3F55234B29D700F3C4C3 /* MTGSController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C3F54234B29D700F3C4C3 /* MTGSController+UITableViewDataSource.swift */; };
+		913C3F57234B29FB00F3C4C3 /* MTGSController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C3F56234B29FB00F3C4C3 /* MTGSController+UITableViewDelegate.swift */; };
+		913C3F59234B2A2E00F3C4C3 /* MTGSController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C3F58234B2A2E00F3C4C3 /* MTGSController+UICollectionViewDataSource.swift */; };
+		913C3F5B234B2A6B00F3C4C3 /* MTGSController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C3F5A234B2A6B00F3C4C3 /* MTGSController+UICollectionViewDelegate.swift */; };
+		913C3F5D234B2AAA00F3C4C3 /* MTGSController+UICollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C3F5C234B2AAA00F3C4C3 /* MTGSController+UICollectionViewDelegateFlowLayout.swift */; };
+		913C3F5F234B2AE000F3C4C3 /* MTGSController+FiltersControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C3F5E234B2AE000F3C4C3 /* MTGSController+FiltersControllerDelegate.swift */; };
+		913C3F63234B2C6400F3C4C3 /* FiltersController+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C3F62234B2C6400F3C4C3 /* FiltersController+UITextFieldDelegate.swift */; };
+		913C3F65234B2CA400F3C4C3 /* FiltersController+UIPickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C3F64234B2CA400F3C4C3 /* FiltersController+UIPickerViewDataSource.swift */; };
+		913C3F67234B2D0500F3C4C3 /* FiltersController+UIPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C3F66234B2D0500F3C4C3 /* FiltersController+UIPickerViewDelegate.swift */; };
 		916379A02347DF0D00046CA1 /* MTGBigarClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163799F2347DF0D00046CA1 /* MTGBigarClient.swift */; };
 		916379A32347DFB300046CA1 /* SetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916379A12347DFB300046CA1 /* SetCollectionViewCell.swift */; };
 		916379A42347DFB300046CA1 /* SetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 916379A22347DFB300046CA1 /* SetCollectionViewCell.xib */; };
@@ -52,6 +61,15 @@
 		91255F7F2347DD6C00D01F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91255F812347DD6C00D01F83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		913C3F50234A397400F3C4C3 /* Planewalker.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Planewalker.otf; sourceTree = "<group>"; };
+		913C3F54234B29D700F3C4C3 /* MTGSController+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MTGSController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
+		913C3F56234B29FB00F3C4C3 /* MTGSController+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MTGSController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
+		913C3F58234B2A2E00F3C4C3 /* MTGSController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MTGSController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
+		913C3F5A234B2A6B00F3C4C3 /* MTGSController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MTGSController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		913C3F5C234B2AAA00F3C4C3 /* MTGSController+UICollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MTGSController+UICollectionViewDelegateFlowLayout.swift"; sourceTree = "<group>"; };
+		913C3F5E234B2AE000F3C4C3 /* MTGSController+FiltersControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MTGSController+FiltersControllerDelegate.swift"; sourceTree = "<group>"; };
+		913C3F62234B2C6400F3C4C3 /* FiltersController+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FiltersController+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
+		913C3F64234B2CA400F3C4C3 /* FiltersController+UIPickerViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FiltersController+UIPickerViewDataSource.swift"; sourceTree = "<group>"; };
+		913C3F66234B2D0500F3C4C3 /* FiltersController+UIPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FiltersController+UIPickerViewDelegate.swift"; sourceTree = "<group>"; };
 		9163799F2347DF0D00046CA1 /* MTGBigarClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGBigarClient.swift; sourceTree = "<group>"; };
 		916379A12347DFB300046CA1 /* SetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCollectionViewCell.swift; sourceTree = "<group>"; };
 		916379A22347DFB300046CA1 /* SetCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -153,15 +171,7 @@
 				91FC3AD9234AD8C500F3EA4E /* Set Details View */,
 				916379A62347DFDC00046CA1 /* Cards TableViewCell */,
 				916379A52347DFCF00046CA1 /* Sets CollectionViewCell */,
-				91ED5222234ADF8A007F6255 /* DictionaryExtension.swift */,
-				9183D14C234817640066FF54 /* MaskView.swift */,
-				916379AD2349680000046CA1 /* StringExtension.swift */,
-				91074E6423482DD80081DE94 /* MtgFont.swift */,
-				91FC3AD2234AC17A00F3EA4E /* UIBarButtonItemExtension.swift */,
-				91FC3AC12349980D00F3EA4E /* UILabelExtension.swift */,
-				91FC3AD6234AC88700F3EA4E /* ArrayExtension.swift */,
-				91FC3AD4234AC2F500F3EA4E /* UIViewExtension.swift */,
-				91FC3ACB234A156400F3EA4E /* UIViewControllerExtension.swift */,
+				913C3F68234B2D4300F3C4C3 /* View Helpers */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -169,9 +179,10 @@
 		91255F892347DD8000D01F83 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				91255F772347DD6B00D01F83 /* MTGSCController.swift */,
-				91FC3ACF234A6E0B00F3EA4E /* FiltersController.swift */,
+				913C3F60234B2B0000F3C4C3 /* FiltersController */,
+				913C3F52234B297C00F3C4C3 /* MTGS Root Controller */,
 				91FC3AC92349FB3900F3EA4E /* CardPresenterController.swift */,
+				913C3F69234B2D6200F3C4C3 /* Type Extensions */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -186,6 +197,70 @@
 				91255F7E2347DD6C00D01F83 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		913C3F52234B297C00F3C4C3 /* MTGS Root Controller */ = {
+			isa = PBXGroup;
+			children = (
+				91255F772347DD6B00D01F83 /* MTGSCController.swift */,
+				913C3F53234B298A00F3C4C3 /* Extensions */,
+			);
+			path = "MTGS Root Controller";
+			sourceTree = "<group>";
+		};
+		913C3F53234B298A00F3C4C3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				913C3F54234B29D700F3C4C3 /* MTGSController+UITableViewDataSource.swift */,
+				913C3F56234B29FB00F3C4C3 /* MTGSController+UITableViewDelegate.swift */,
+				913C3F58234B2A2E00F3C4C3 /* MTGSController+UICollectionViewDataSource.swift */,
+				913C3F5A234B2A6B00F3C4C3 /* MTGSController+UICollectionViewDelegate.swift */,
+				913C3F5C234B2AAA00F3C4C3 /* MTGSController+UICollectionViewDelegateFlowLayout.swift */,
+				913C3F5E234B2AE000F3C4C3 /* MTGSController+FiltersControllerDelegate.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		913C3F60234B2B0000F3C4C3 /* FiltersController */ = {
+			isa = PBXGroup;
+			children = (
+				91FC3ACF234A6E0B00F3EA4E /* FiltersController.swift */,
+				913C3F61234B2C0600F3C4C3 /* Extensions */,
+			);
+			path = FiltersController;
+			sourceTree = "<group>";
+		};
+		913C3F61234B2C0600F3C4C3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				913C3F62234B2C6400F3C4C3 /* FiltersController+UITextFieldDelegate.swift */,
+				913C3F64234B2CA400F3C4C3 /* FiltersController+UIPickerViewDataSource.swift */,
+				913C3F66234B2D0500F3C4C3 /* FiltersController+UIPickerViewDelegate.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		913C3F68234B2D4300F3C4C3 /* View Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				91074E6423482DD80081DE94 /* MtgFont.swift */,
+				91FC3AD4234AC2F500F3EA4E /* UIViewExtension.swift */,
+				9183D14C234817640066FF54 /* MaskView.swift */,
+				91FC3AD2234AC17A00F3EA4E /* UIBarButtonItemExtension.swift */,
+				91FC3AC12349980D00F3EA4E /* UILabelExtension.swift */,
+			);
+			path = "View Helpers";
+			sourceTree = "<group>";
+		};
+		913C3F69234B2D6200F3C4C3 /* Type Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				91FC3ACB234A156400F3EA4E /* UIViewControllerExtension.swift */,
+				91ED5222234ADF8A007F6255 /* DictionaryExtension.swift */,
+				916379AD2349680000046CA1 /* StringExtension.swift */,
+				91FC3AD6234AC88700F3EA4E /* ArrayExtension.swift */,
+			);
+			path = "Type Extensions";
 			sourceTree = "<group>";
 		};
 		916379A52347DFCF00046CA1 /* Sets CollectionViewCell */ = {
@@ -345,22 +420,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				913C3F59234B2A2E00F3C4C3 /* MTGSController+UICollectionViewDataSource.swift in Sources */,
 				91FC3AD3234AC17A00F3EA4E /* UIBarButtonItemExtension.swift in Sources */,
+				913C3F5B234B2A6B00F3C4C3 /* MTGSController+UICollectionViewDelegate.swift in Sources */,
 				91FC3ACA2349FB3900F3EA4E /* CardPresenterController.swift in Sources */,
 				9183D14D234817640066FF54 /* MaskView.swift in Sources */,
 				916379B023496C7700046CA1 /* SetDetailsView.swift in Sources */,
 				91FC3ACE234A587C00F3EA4E /* LanguagesDictionary.swift in Sources */,
+				913C3F57234B29FB00F3C4C3 /* MTGSController+UITableViewDelegate.swift in Sources */,
 				9183D14A2347F1500066FF54 /* SetsAndCardsStruct.swift in Sources */,
+				913C3F5F234B2AE000F3C4C3 /* MTGSController+FiltersControllerDelegate.swift in Sources */,
 				91FC3AD5234AC2F500F3EA4E /* UIViewExtension.swift in Sources */,
 				91ED5223234ADF8A007F6255 /* DictionaryExtension.swift in Sources */,
+				913C3F67234B2D0500F3C4C3 /* FiltersController+UIPickerViewDelegate.swift in Sources */,
 				916379AE2349680000046CA1 /* StringExtension.swift in Sources */,
 				91FC3AC22349980D00F3EA4E /* UILabelExtension.swift in Sources */,
+				913C3F5D234B2AAA00F3C4C3 /* MTGSController+UICollectionViewDelegateFlowLayout.swift in Sources */,
+				913C3F65234B2CA400F3C4C3 /* FiltersController+UIPickerViewDataSource.swift in Sources */,
 				916379A32347DFB300046CA1 /* SetCollectionViewCell.swift in Sources */,
 				916379A92347E07300046CA1 /* CardTableViewCell.swift in Sources */,
+				913C3F63234B2C6400F3C4C3 /* FiltersController+UITextFieldDelegate.swift in Sources */,
 				91074E6523482DD80081DE94 /* MtgFont.swift in Sources */,
 				91255F782347DD6B00D01F83 /* MTGSCController.swift in Sources */,
 				91255F742347DD6B00D01F83 /* AppDelegate.swift in Sources */,
 				91255F762347DD6B00D01F83 /* SceneDelegate.swift in Sources */,
+				913C3F55234B29D700F3C4C3 /* MTGSController+UITableViewDataSource.swift in Sources */,
 				91FC3ACC234A156400F3EA4E /* UIViewControllerExtension.swift in Sources */,
 				916379A02347DF0D00046CA1 /* MTGBigarClient.swift in Sources */,
 				91FC3AD0234A6E0B00F3EA4E /* FiltersController.swift in Sources */,

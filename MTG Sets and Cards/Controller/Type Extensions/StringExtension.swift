@@ -8,6 +8,8 @@
 
 import Foundation
 
+//Helpers to deal with set release date and to deal with the promo sets in order to retrive the correct set icon and avoid repeating images in assets
+
 extension String {
     
     private func convertStringToDate(_ isoDate: String) -> Date {

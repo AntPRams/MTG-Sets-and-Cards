@@ -8,8 +8,12 @@
 
 import Foundation
 
+//Used to retrieve the key from a value
+
 extension Dictionary where Key == String, Value: Equatable {
+    
     func key(for value: Value) -> Key? {
+        
         return compactMap { value == $1 ? $0 : nil }.first
     }
 }

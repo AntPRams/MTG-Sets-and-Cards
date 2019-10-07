@@ -10,15 +10,16 @@ import UIKit
 
 class SetCollectionViewCell: UICollectionViewCell {
     
-    static let identifier = "SetCollectionViewCell"
-
+    //MARK: Outlets
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var setIconImageView: UIImageView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    //MARK: Properties
+    
+    static let identifier = "SetCollectionViewCell"
+    
+    //MARK: Methods
     
     func setupCellWith(_ set: MtgSet) {
         
@@ -27,8 +28,6 @@ class SetCollectionViewCell: UICollectionViewCell {
         } else {
             titleLabel.addLabelAttributes(font: UIFont.belerenLarge, text: set.name, color: .white)
         }
-        
-        
         
         guard let defaultImage = UIImage(named: "pmei") else {return}
         let setIcon = UIImage(named: set.code.identifyPromoSets(setName: set.name)) ?? defaultImage

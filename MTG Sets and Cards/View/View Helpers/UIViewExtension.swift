@@ -8,6 +8,8 @@
 
 import UIKit
 
+//Layer style helper
+
 extension UIView {
     
     func applyLayerStyle(cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: CGColor) {

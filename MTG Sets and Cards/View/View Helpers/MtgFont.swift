@@ -8,11 +8,13 @@
 
 import UIKit
 
+//Fonts
+
 extension UIFont {
     
     static let belerenLarge =  UIFont(name: "Beleren", size: 40)!
     static let belerenMedium = UIFont(name: "Beleren", size: 20)!
-    static let belerenSmall =  UIFont(name: "Beleren", size: 15)!
+    //static let belerenSmall =  UIFont(name: "Beleren", size: 15)!
     
     static let planeswalkerLarge = UIFont(name: "Planewalker", size: 40)!
     static let planeswalkerMedium = UIFont(name: "Planewalker", size: 20)!

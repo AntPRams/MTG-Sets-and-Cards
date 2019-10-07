@@ -11,8 +11,15 @@ import SDWebImage
 
 class CardPresenterController: UIViewController {
     
+    //MARK: Outlets
+    
     @IBOutlet weak var cardImageView: UIImageView!
+    
+    //MARK: Properties
+    
     var stringUrl: URL?
+    
+    //MARK: View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +38,9 @@ class CardPresenterController: UIViewController {
         }
     }
     
+    //MARK: Actions
+    
     @IBAction func dismissControllerOnScreenTap(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
-   
-
 }

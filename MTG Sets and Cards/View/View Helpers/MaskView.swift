@@ -8,6 +8,8 @@
 
 import UIKit
 
+//Used to apply a mask in CardTableViewCell
+
 extension CALayer {
     
     func applyMask() {

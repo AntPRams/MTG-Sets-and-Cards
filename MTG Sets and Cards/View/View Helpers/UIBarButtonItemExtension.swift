@@ -8,6 +8,8 @@
 
 import UIKit
 
+//Used to configure the UIBarButton items in the pickerview (FiltersController)
+
 extension UIBarButtonItem {
     
     func setAppearance(with font: UIFont, color: UIColor, for state: UIControl.State) {

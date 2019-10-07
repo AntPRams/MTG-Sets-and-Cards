@@ -8,6 +8,8 @@
 
 import UIKit
 
+//Used to animate labels when text change and to add text attributes
+
 extension UILabel {
     
     func changeTextWithAnimation(_ text: String, stackView: UIStackView? = nil) {

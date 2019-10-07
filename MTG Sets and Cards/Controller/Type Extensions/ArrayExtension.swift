@@ -8,6 +8,8 @@
 
 import Foundation
 
+//Used to remove duplicate when filtering
+
 extension Array where Element: Equatable {
     
     func removeDuplicates() -> [Element] {

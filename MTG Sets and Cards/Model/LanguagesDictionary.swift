@@ -8,6 +8,8 @@
 
 import Foundation
 
+//Languages available in api and a constant to deal with the key and value
+
 let languages: [String:String] = [
 
     "en" : "English",

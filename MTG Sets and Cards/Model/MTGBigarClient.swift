@@ -11,18 +11,23 @@ import Alamofire
 import SwiftyJSON
 
 class MTGBigarClient {
+    
+    //MARK: Generate URL
    
     class func generateUrl(for expansion: String? = nil) -> URL? {
         
         var components = URLComponents()
         
         components.scheme = "https"
-        components.host = "cdn.bigar.com"
-        components.path = "/mtg/cardjson/expansions\(expansion ?? "")"
+        components.host =   "cdn.bigar.com"
+        components.path =   "/mtg/cardjson/expansions\(expansion ?? "")"
         
         guard let url = components.url else {return nil}
+        
         return url
     }
+    
+    //MARK: Task for GET Request
     
     class func taskForGetRequest(url: URL?, handler: @escaping (JSON?, Error?) -> Void) {
         
