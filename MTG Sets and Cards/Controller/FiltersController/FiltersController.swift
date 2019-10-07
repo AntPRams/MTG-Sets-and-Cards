@@ -54,8 +54,8 @@ class FiltersController: UIViewController {
             cancelBarButton.setAppearance(with: UIFont.belerenSmall, color: UIColor.lightGray, for: .highlighted)
         }
     }
-    @IBOutlet weak var newPicker:             UIPickerView!
-    @IBOutlet weak var newToolBar:            UIToolbar!
+    @IBOutlet weak var pickerView:            UIPickerView!
+    @IBOutlet weak var pickerViewToolbar:     UIToolbar!
     @IBOutlet weak var setNameTextField:      UITextField!
     @IBOutlet weak var yearFstEntryTxtField:  UITextField!
     @IBOutlet weak var yearScdEntryTextField: UITextField!
@@ -83,15 +83,15 @@ class FiltersController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        newToolBar.isHidden = true
-        newPicker.isHidden = true
+        pickerViewToolbar.isHidden = true
+        pickerView.isHidden = true
         [setNameTextField, yearFstEntryTxtField, yearScdEntryTextField, languageTextField].forEach{
             $0?.delegate = self
             $0?.textColor = .white
             $0?.font = UIFont.belerenMedium
             $0?.keyboardAppearance = .dark
-            $0?.inputView = newPicker
-            $0?.inputAccessoryView = newToolBar
+            $0?.inputView = pickerView
+            $0?.inputAccessoryView = pickerViewToolbar
         }
         yearScdEntryTextField.isUserInteractionEnabled = yearFstEntryTxtField.text == "" ? false : true
         setupPickerView()
@@ -127,12 +127,12 @@ class FiltersController: UIViewController {
     //MARK: Methods
    
     private func setupPickerView() {
-        newPicker.delegate = self
-        newPicker.dataSource = self
-        newPicker.delegate?.pickerView?(newPicker, didSelectRow: 0, inComponent: 0)
-        newPicker.setValue(UIColor.clear, forKey: "backgroundColor")
-        newPicker.setValue(UIColor.white, forKey: "textColor")
-        newPicker.alpha = 0.7
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        pickerView.delegate?.pickerView?(pickerView, didSelectRow: 0, inComponent: 0)
+        pickerView.setValue(UIColor.clear, forKey: "backgroundColor")
+        pickerView.setValue(UIColor.white, forKey: "textColor")
+        pickerView.alpha = 0.7
     }
     
     private func filter() -> [MtgSet]{

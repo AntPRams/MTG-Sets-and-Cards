@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -17,11 +16,11 @@
             <objects>
                 <viewController storyboardIdentifier="FiltersController" id="Ed1-Cu-8qA" customClass="FiltersController" customModule="MTG_Sets_and_Cards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hGR-nc-7ba">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58m-yr-SVe">
-                                <rect key="frame" x="32" y="248" width="350" height="400"/>
+                                <rect key="frame" x="125" y="100" width="350" height="400"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="hvH-Ai-rT0">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="400"/>
@@ -33,13 +32,13 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="310" height="43"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abx-GR-Thz">
-                                                        <rect key="frame" x="0.0" y="0.0" width="90" height="43"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="94.5" height="43"/>
                                                         <fontDescription key="fontDescription" name="Beleren-Bold" family="Beleren" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v0K-jv-nMe">
-                                                        <rect key="frame" x="90" y="0.0" width="220" height="43"/>
+                                                        <rect key="frame" x="94.5" y="0.0" width="215.5" height="43"/>
                                                         <color key="backgroundColor" red="0.013983098790049553" green="0.0076006925664842129" blue="0.012048265896737576" alpha="0.30768407534246578" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -120,7 +119,7 @@
                                                 <rect key="frame" x="0.0" y="317" width="310" height="43"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ygg-gg-Htz">
-                                                        <rect key="frame" x="0.0" y="3" width="152" height="37"/>
+                                                        <rect key="frame" x="0.0" y="3.5" width="152" height="36"/>
                                                         <fontDescription key="fontDescription" name="Beleren-Bold" family="Beleren" pointSize="20"/>
                                                         <state key="normal" title="Cancel">
                                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -130,7 +129,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxE-HN-Vge">
-                                                        <rect key="frame" x="158" y="3" width="152" height="37"/>
+                                                        <rect key="frame" x="158" y="3.5" width="152" height="36"/>
                                                         <fontDescription key="fontDescription" name="Beleren-Bold" family="Beleren" pointSize="20"/>
                                                         <state key="normal" title="Ok">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -159,7 +158,7 @@
                                 </constraints>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="4Sh-yp-1cL">
-                                <rect key="frame" x="0.0" y="632" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="336" width="600" height="44"/>
                                 <items>
                                     <barButtonItem title="Cancel / Clear" id="5DC-qd-wgD">
                                         <connections>
@@ -175,7 +174,7 @@
                                 </items>
                             </toolbar>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vce-7x-192">
-                                <rect key="frame" x="0.0" y="676" width="414" height="220"/>
+                                <rect key="frame" x="0.0" y="380" width="600" height="220"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="Xx5-7Y-lDf"/>
                                 </constraints>
@@ -200,10 +199,10 @@
                         <outlet property="cancelButton" destination="Ygg-gg-Htz" id="Gb3-s8-TgD"/>
                         <outlet property="languageTextField" destination="v0K-jv-nMe" id="CRN-IT-j5a"/>
                         <outlet property="mainView" destination="58m-yr-SVe" id="732-iJ-WWG"/>
-                        <outlet property="newPicker" destination="Vce-7x-192" id="UGA-vf-oAN"/>
-                        <outlet property="newToolBar" destination="4Sh-yp-1cL" id="qQi-0c-JjF"/>
                         <outlet property="okBarButton" destination="Zim-HX-1FB" id="baW-bb-Rs4"/>
                         <outlet property="okButton" destination="ZxE-HN-Vge" id="qx2-BQ-GUq"/>
+                        <outlet property="pickerView" destination="Vce-7x-192" id="UGA-vf-oAN"/>
+                        <outlet property="pickerViewToolbar" destination="4Sh-yp-1cL" id="qQi-0c-JjF"/>
                         <outlet property="setNameTextField" destination="g4f-PN-dYY" id="FsW-4Y-jy3"/>
                         <outlet property="yearFstEntryTxtField" destination="2YF-Qu-mLt" id="snm-OX-nMz"/>
                         <outlet property="yearScdEntryTextField" destination="SKY-Xf-zxq" id="DyL-y0-Z43"/>

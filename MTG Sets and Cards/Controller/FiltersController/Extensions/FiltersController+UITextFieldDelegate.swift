@@ -11,15 +11,15 @@ import UIKit
 extension FiltersController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        newToolBar.isHidden = false
-        newPicker.isHidden = false
+        pickerViewToolbar.isHidden = false
+        pickerView.isHidden = false
         activeTextField = textField
         disableAllComponents(exception: textField, shouldEnable: false)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        newToolBar.isHidden = true
-        newPicker.isHidden = true
+        pickerViewToolbar.isHidden = true
+        pickerView.isHidden = true
         disableAllComponents(exception: textField, shouldEnable: true)
     }
     
