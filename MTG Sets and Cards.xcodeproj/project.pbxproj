@@ -32,6 +32,9 @@
 		91FC3ACC234A156400F3EA4E /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC3ACB234A156400F3EA4E /* UIViewControllerExtension.swift */; };
 		91FC3ACE234A587C00F3EA4E /* LanguagesDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC3ACD234A587C00F3EA4E /* LanguagesDictionary.swift */; };
 		91FC3AD0234A6E0B00F3EA4E /* FiltersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC3ACF234A6E0B00F3EA4E /* FiltersController.swift */; };
+		91FC3AD3234AC17A00F3EA4E /* UIBarButtonItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC3AD2234AC17A00F3EA4E /* UIBarButtonItemExtension.swift */; };
+		91FC3AD5234AC2F500F3EA4E /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC3AD4234AC2F500F3EA4E /* UIViewExtension.swift */; };
+		91FC3AD7234AC88700F3EA4E /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC3AD6234AC88700F3EA4E /* ArrayExtension.swift */; };
 		B659767FFBB1A8D19486FCE3 /* Pods_MTG_Sets_and_Cards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E86716175261517654DDC6A /* Pods_MTG_Sets_and_Cards.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +68,9 @@
 		91FC3ACB234A156400F3EA4E /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		91FC3ACD234A587C00F3EA4E /* LanguagesDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesDictionary.swift; sourceTree = "<group>"; };
 		91FC3ACF234A6E0B00F3EA4E /* FiltersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersController.swift; sourceTree = "<group>"; };
+		91FC3AD2234AC17A00F3EA4E /* UIBarButtonItemExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtension.swift; sourceTree = "<group>"; };
+		91FC3AD4234AC2F500F3EA4E /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		91FC3AD6234AC88700F3EA4E /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		9846E0CCD24C085434808F10 /* Pods-MTG Sets and Cards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTG Sets and Cards.debug.xcconfig"; path = "Target Support Files/Pods-MTG Sets and Cards/Pods-MTG Sets and Cards.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,14 +148,16 @@
 		91255F882347DD7A00D01F83 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				916379AF23496C7700046CA1 /* SetDetailsView.swift */,
-				916379B123496D4100046CA1 /* SetDetailsView.xib */,
+				91FC3AD9234AD8C500F3EA4E /* Set Details View */,
 				916379A62347DFDC00046CA1 /* Cards TableViewCell */,
 				916379A52347DFCF00046CA1 /* Sets CollectionViewCell */,
 				9183D14C234817640066FF54 /* MaskView.swift */,
 				916379AD2349680000046CA1 /* StringExtension.swift */,
 				91074E6423482DD80081DE94 /* MtgFont.swift */,
+				91FC3AD2234AC17A00F3EA4E /* UIBarButtonItemExtension.swift */,
 				91FC3AC12349980D00F3EA4E /* UILabelExtension.swift */,
+				91FC3AD6234AC88700F3EA4E /* ArrayExtension.swift */,
+				91FC3AD4234AC2F500F3EA4E /* UIViewExtension.swift */,
 				91FC3ACB234A156400F3EA4E /* UIViewControllerExtension.swift */,
 			);
 			path = View;
@@ -193,6 +201,15 @@
 				916379A82347E07300046CA1 /* CardTableViewCell.xib */,
 			);
 			path = "Cards TableViewCell";
+			sourceTree = "<group>";
+		};
+		91FC3AD9234AD8C500F3EA4E /* Set Details View */ = {
+			isa = PBXGroup;
+			children = (
+				916379AF23496C7700046CA1 /* SetDetailsView.swift */,
+				916379B123496D4100046CA1 /* SetDetailsView.xib */,
+			);
+			path = "Set Details View";
 			sourceTree = "<group>";
 		};
 		C7EEAC13A418D074283F4F5F /* Pods */ = {
@@ -325,11 +342,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91FC3AD3234AC17A00F3EA4E /* UIBarButtonItemExtension.swift in Sources */,
 				91FC3ACA2349FB3900F3EA4E /* CardPresenterController.swift in Sources */,
 				9183D14D234817640066FF54 /* MaskView.swift in Sources */,
 				916379B023496C7700046CA1 /* SetDetailsView.swift in Sources */,
 				91FC3ACE234A587C00F3EA4E /* LanguagesDictionary.swift in Sources */,
 				9183D14A2347F1500066FF54 /* SetsAndCardsStruct.swift in Sources */,
+				91FC3AD5234AC2F500F3EA4E /* UIViewExtension.swift in Sources */,
 				916379AE2349680000046CA1 /* StringExtension.swift in Sources */,
 				91FC3AC22349980D00F3EA4E /* UILabelExtension.swift in Sources */,
 				916379A32347DFB300046CA1 /* SetCollectionViewCell.swift in Sources */,
@@ -341,6 +360,7 @@
 				91FC3ACC234A156400F3EA4E /* UIViewControllerExtension.swift in Sources */,
 				916379A02347DF0D00046CA1 /* MTGBigarClient.swift in Sources */,
 				91FC3AD0234A6E0B00F3EA4E /* FiltersController.swift in Sources */,
+				91FC3AD7234AC88700F3EA4E /* ArrayExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

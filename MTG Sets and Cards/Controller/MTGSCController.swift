@@ -31,7 +31,11 @@ class MTGSCController: UIViewController {
         }
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     var collectionOfSets:  [MtgSet] = []
+    var filteredCollectionOfSets: [MtgSet] = []
     var collectionOfCards: [MtgCard] = []
     var selectedSet: MtgSet!
     
@@ -52,9 +56,18 @@ class MTGSCController: UIViewController {
         setBackgroundImage()
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+    
+    @IBAction func presentFiltersController(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "FiltersController", bundle: .main)
+        guard let controller = storyboard.instantiateViewController(identifier: "FiltersController") as? FiltersController else {return}
+        controller.collectionOfSets = collectionOfSets
+        controller.delegate = self
+        controller.modalPresentationStyle = .overCurrentContext
+        controller.modalTransitionStyle = .crossDissolve
+        present(controller, animated: true)
     }
+    
     
     private func handleSetsResponse(response: JSON?, error: Error?) {
         
@@ -176,13 +189,23 @@ extension MTGSCController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return collectionOfSets.count
+        if filteredCollectionOfSets.isEmpty {
+            return collectionOfSets.count
+        } else {
+            return filteredCollectionOfSets.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: SetCollectionViewCell.identifier, for: indexPath) as! SetCollectionViewCell
-        let model = collectionOfSets[indexPath.row]
+        
+        var model: MtgSet
+        if filteredCollectionOfSets.isEmpty {
+            model = collectionOfSets[indexPath.row]
+        } else {
+            model = filteredCollectionOfSets[indexPath.row]
+        }
         
         cell.setupCellWith(model)
         cell.backgroundColor = .clear
@@ -202,7 +225,12 @@ extension MTGSCController: UICollectionViewDelegate {
             self.mainStackView.layoutIfNeeded()
         }
         
-        let model = collectionOfSets[indexPath.row]
+        var model: MtgSet
+        if filteredCollectionOfSets.isEmpty {
+            model = collectionOfSets[indexPath.row]
+        } else {
+            model = filteredCollectionOfSets[indexPath.row]
+        }
         selectedSet = model
         setDetailsView.setupLabelsWith(model)
         MTGBigarClient.taskForGetRequest(
@@ -227,5 +255,11 @@ extension MTGSCController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+    }
+}
+
+extension MTGSCController: FiltersControllerDelegate {
+    func filtersController(didApplyFiltersIn array: [MtgSet]) {
+        filteredCollectionOfSets = array
     }
 }
