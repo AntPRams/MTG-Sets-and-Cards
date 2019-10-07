@@ -30,9 +30,12 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvN-tT-McE">
-                                                <rect key="frame" x="316" y="4" width="78" height="33"/>
+                                                <rect key="frame" x="304" y="4" width="100" height="33"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="gBB-wP-WYg"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="Beleren-Bold" family="Beleren" pointSize="17"/>
-                                                <state key="normal" title="Apply filter">
+                                                <state key="normal" title="Apply filters">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -41,10 +44,10 @@
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fvN-tT-McE" secondAttribute="trailing" constant="20" symbolic="YES" id="1eg-h3-Gb3"/>
+                                            <constraint firstAttribute="trailing" secondItem="fvN-tT-McE" secondAttribute="trailing" constant="10" id="1eg-h3-Gb3"/>
                                             <constraint firstAttribute="bottom" secondItem="fvN-tT-McE" secondAttribute="bottom" constant="3" id="2Pm-yc-WIi"/>
                                             <constraint firstAttribute="height" constant="40" id="7k7-Nu-nWC"/>
-                                            <constraint firstItem="fvN-tT-McE" firstAttribute="leading" secondItem="xfl-9j-mVr" secondAttribute="leading" priority="999" constant="316" id="m1g-CV-Eip"/>
+                                            <constraint firstItem="fvN-tT-McE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xfl-9j-mVr" secondAttribute="leading" constant="20" symbolic="YES" id="T2d-4u-jCz"/>
                                             <constraint firstItem="fvN-tT-McE" firstAttribute="top" secondItem="xfl-9j-mVr" secondAttribute="top" constant="4" id="tie-5E-dqb"/>
                                         </constraints>
                                     </view>
@@ -101,6 +104,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="collectionView" destination="tfQ-nz-prL" id="tcg-dX-neM"/>
+                        <outlet property="filterButton" destination="fvN-tT-McE" id="sDq-cm-N3Y"/>
                         <outlet property="mainStackView" destination="nTf-yw-T8h" id="HWD-dG-QIP"/>
                         <outlet property="setDetailsView" destination="xKZ-Vw-j85" id="x9V-8u-OMy"/>
                         <outlet property="tableView" destination="IWP-TI-GbT" id="OlV-IK-ul9"/>

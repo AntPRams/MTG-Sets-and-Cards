@@ -33,13 +33,14 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="310" height="43"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abx-GR-Thz">
-                                                        <rect key="frame" x="0.0" y="0.0" width="94.5" height="43"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="90" height="43"/>
                                                         <fontDescription key="fontDescription" name="Beleren-Bold" family="Beleren" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v0K-jv-nMe">
-                                                        <rect key="frame" x="94.5" y="0.0" width="215.5" height="43"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v0K-jv-nMe">
+                                                        <rect key="frame" x="90" y="0.0" width="220" height="43"/>
+                                                        <color key="backgroundColor" red="0.013983098790049553" green="0.0076006925664842129" blue="0.012048265896737576" alpha="0.30768407534246578" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -63,9 +64,9 @@
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g4f-PN-dYY">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g4f-PN-dYY">
                                                         <rect key="frame" x="107" y="0.0" width="203" height="43"/>
-                                                        <color key="backgroundColor" red="0.015525666996836662" green="0.005885713268071413" blue="0.0058822608552873135" alpha="0.30660815930000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.020600000396370888" green="0.015552708879113197" blue="0.011296870186924934" alpha="0.31391802226027399" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="203" id="kBb-BV-ecZ"/>
                                                         </constraints>
@@ -86,7 +87,7 @@
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2YF-Qu-mLt">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2YF-Qu-mLt">
                                                         <rect key="frame" x="106.5" y="0.0" width="80" height="43"/>
                                                         <color key="backgroundColor" red="0.015525666996836662" green="0.005885713268071413" blue="0.0058822608552873135" alpha="0.30660815930000002" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -101,7 +102,7 @@
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SKY-Xf-zxq">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SKY-Xf-zxq">
                                                         <rect key="frame" x="230" y="0.0" width="80" height="43"/>
                                                         <color key="backgroundColor" red="0.015525666996836662" green="0.005885713268071413" blue="0.0058822608552873135" alpha="0.30660815930000002" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -119,16 +120,21 @@
                                                 <rect key="frame" x="0.0" y="317" width="310" height="43"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ygg-gg-Htz">
-                                                        <rect key="frame" x="0.0" y="6.5" width="152" height="30"/>
-                                                        <state key="normal" title="Cancel"/>
+                                                        <rect key="frame" x="0.0" y="3" width="152" height="37"/>
+                                                        <fontDescription key="fontDescription" name="Beleren-Bold" family="Beleren" pointSize="20"/>
+                                                        <state key="normal" title="Cancel">
+                                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="cancelButton:" destination="Ed1-Cu-8qA" eventType="touchUpInside" id="1zw-np-S20"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxE-HN-Vge">
-                                                        <rect key="frame" x="158" y="6.5" width="152" height="30"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" title="Ok"/>
+                                                        <rect key="frame" x="158" y="3" width="152" height="37"/>
+                                                        <fontDescription key="fontDescription" name="Beleren-Bold" family="Beleren" pointSize="20"/>
+                                                        <state key="normal" title="Ok">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="okButton:" destination="Ed1-Cu-8qA" eventType="touchUpInside" id="vpg-zx-T3I"/>
                                                         </connections>
@@ -152,18 +158,28 @@
                                     <constraint firstItem="hvH-Ai-rT0" firstAttribute="top" secondItem="58m-yr-SVe" secondAttribute="top" id="x6L-ET-iYi"/>
                                 </constraints>
                             </view>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vce-7x-192">
-                                <rect key="frame" x="0.0" y="696" width="414" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="Xx5-7Y-lDf"/>
-                                </constraints>
-                            </pickerView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Sh-yp-1cL">
-                                <rect key="frame" x="0.0" y="652" width="414" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="4Sh-yp-1cL">
+                                <rect key="frame" x="0.0" y="632" width="414" height="44"/>
                                 <items>
-                                    <barButtonItem title="Item" id="5DC-qd-wgD"/>
+                                    <barButtonItem title="Cancel / Clear" id="5DC-qd-wgD">
+                                        <connections>
+                                            <action selector="cancelOnBarButtonTapped:" destination="Ed1-Cu-8qA" id="GF1-Jk-NOz"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="jDB-Cx-Cmq"/>
+                                    <barButtonItem title="Ok" id="Zim-HX-1FB">
+                                        <connections>
+                                            <action selector="okOnBarButtonTapped:" destination="Ed1-Cu-8qA" id="3eS-Tp-HvL"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vce-7x-192">
+                                <rect key="frame" x="0.0" y="676" width="414" height="220"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="Xx5-7Y-lDf"/>
+                                </constraints>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29805222602739728" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -180,14 +196,17 @@
                     </view>
                     <connections>
                         <outlet property="backgroundImageView" destination="hvH-Ai-rT0" id="3yE-cT-Fzd"/>
+                        <outlet property="cancelBarButton" destination="5DC-qd-wgD" id="qYY-DO-kbv"/>
+                        <outlet property="cancelButton" destination="Ygg-gg-Htz" id="Gb3-s8-TgD"/>
                         <outlet property="languageTextField" destination="v0K-jv-nMe" id="CRN-IT-j5a"/>
                         <outlet property="mainView" destination="58m-yr-SVe" id="732-iJ-WWG"/>
                         <outlet property="newPicker" destination="Vce-7x-192" id="UGA-vf-oAN"/>
                         <outlet property="newToolBar" destination="4Sh-yp-1cL" id="qQi-0c-JjF"/>
+                        <outlet property="okBarButton" destination="Zim-HX-1FB" id="baW-bb-Rs4"/>
                         <outlet property="okButton" destination="ZxE-HN-Vge" id="qx2-BQ-GUq"/>
                         <outlet property="setNameTextField" destination="g4f-PN-dYY" id="FsW-4Y-jy3"/>
-                        <outlet property="yearSecondTextField" destination="SKY-Xf-zxq" id="DyL-y0-Z43"/>
-                        <outlet property="yeartFirstTextField" destination="2YF-Qu-mLt" id="snm-OX-nMz"/>
+                        <outlet property="yearFstEntryTxtField" destination="2YF-Qu-mLt" id="snm-OX-nMz"/>
+                        <outlet property="yearScdEntryTextField" destination="SKY-Xf-zxq" id="DyL-y0-Z43"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ieY-1g-SMN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -11,8 +11,13 @@ import Foundation
 extension MTGSCController: FiltersControllerDelegate {
     
     func filtersController(didApplyFiltersIn array: [MtgSet]) {
-        filteredCollectionOfSets = array
         
+        filteredCollectionOfSets = array
+        MTGBigarClient.taskForGetRequest(
+            url:     MTGBigarClient.generateUrl(for: tempUrl),
+            handler: handleCardsResponse(response:error:)
+        )
+        setFilterButtonTitle()
         collectionView.reloadData()
     }
 }

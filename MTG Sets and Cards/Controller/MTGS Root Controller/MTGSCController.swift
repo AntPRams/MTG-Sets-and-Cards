@@ -32,6 +32,7 @@ class MTGSCController: UIViewController {
     
     @IBOutlet weak var mainStackView:  UIStackView!
     @IBOutlet weak var setDetailsView: SetDetailsView!
+    @IBOutlet weak var filterButton:   UIButton!
     
     //MARK: Properties
     
@@ -43,6 +44,8 @@ class MTGSCController: UIViewController {
     var filteredCollectionOfSets: [MtgSet] = []
     var collectionOfCards:        [MtgCard] = []
     var selectedSet: MtgSet!
+    var tempUrl: String!
+    
     
     //MARK: View life cycle
     
@@ -51,17 +54,16 @@ class MTGSCController: UIViewController {
         
         view.backgroundColor = .black
         collectionView.dataSource = self
-        collectionView.delegate = self
-        tableView.dataSource = self
-        tableView.delegate = self
-        setDetailsView.isHidden = true
+        collectionView.delegate =   self
+        tableView.dataSource =      self
+        tableView.delegate =        self
+        setDetailsView.isHidden =   true
         
         MTGBigarClient.taskForGetRequest(url: MTGBigarClient.generateUrl(), handler: handleSetsResponse(response:error:))
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         setBackgroundImage()
     }
     
@@ -69,13 +71,21 @@ class MTGSCController: UIViewController {
     
     @IBAction func presentFiltersController(_ sender: Any) {
         
-        let storyboard = UIStoryboard(name: "FiltersController", bundle: .main)
-        guard let controller = storyboard.instantiateViewController(identifier: "FiltersController") as? FiltersController else {return}
-        controller.collectionOfSets = collectionOfSets
-        controller.delegate = self
-        controller.modalPresentationStyle = .overCurrentContext
-        controller.modalTransitionStyle = .crossDissolve
-        present(controller, animated: true)
+        if filteredCollectionOfSets.isEmpty {
+            let storyboard = UIStoryboard(name: "FiltersController", bundle: .main)
+            guard let controller = storyboard.instantiateViewController(identifier: "FiltersController") as? FiltersController else {return}
+            controller.collectionOfSets = collectionOfSets
+            controller.delegate = self
+            controller.modalPresentationStyle = .overCurrentContext
+            controller.modalTransitionStyle = .crossDissolve
+            present(controller, animated: true)
+        } else {
+            filteredCollectionOfSets.removeAll()
+            tableView.reloadData()
+            collectionView.reloadData()
+        }
+        setFilterButtonTitle()
+        
     }
     
     //MARK: Methods
@@ -106,20 +116,22 @@ class MTGSCController: UIViewController {
     
     func handleCardsResponse(response: JSON?, error: Error?) {
         
+        guard let selectedLanguage = UserDefaults.standard.string(forKey: "Cards Language") else {return}
+        
         if error == nil {
             guard let response = response else {return}
             
             let data = response["data"]
             collectionOfCards.removeAll()
             
-            data["allExpansionCards"].array!.forEach({
+            data["allExpansionCards"].array?.forEach({
                 
-                let name =     $0["name"][languageCurrentlySelected].stringValue
+                let name =     $0["name"][selectedLanguage].stringValue
                 let manaCost = $0["manacost"].stringValue
                 let artCropUrl = URL(string: $0["imageUrls"][0]["artcrop"].stringValue)
                 let largeImageUrl = URL(string: $0["imageUrls"][0]["normal"].stringValue)
                 let rarity = $0["rarity"].stringValue
-                let type = $0["type"][languageCurrentlySelected].stringValue
+                let type = $0["type"][selectedLanguage].stringValue
                 let releaseDate = selectedSet.releaseDate
                 
                 let card = MtgCard(
@@ -137,5 +149,13 @@ class MTGSCController: UIViewController {
             presentAlert(message: error?.localizedDescription)
         }
         tableView.reloadData()
+    }
+    
+    func setFilterButtonTitle() {
+        if filteredCollectionOfSets.isEmpty {
+            filterButton.setTitle("Apply Filters", for: .normal)
+        } else {
+            filterButton.setTitle("Remove Filters", for: .normal)
+        }
     }
 }

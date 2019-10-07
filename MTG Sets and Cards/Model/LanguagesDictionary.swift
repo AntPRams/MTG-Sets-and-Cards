@@ -8,7 +8,7 @@
 
 import Foundation
 
-//Languages available in api and a constant to deal with the key and value
+//Languages available in MTG Bigar api 
 
 let languages: [String:String] = [
 
@@ -22,7 +22,4 @@ let languages: [String:String] = [
     "ru" : "Russian",
     "es" : "Spanish"
 ]
-
-let languageCurrentlySelected = UserDefaults.standard.string(forKey: "Cards Language")!
-let languageKey = languages.key(for: languageCurrentlySelected)
 

@@ -14,12 +14,13 @@ extension FiltersController: UITextFieldDelegate {
         newToolBar.isHidden = false
         newPicker.isHidden = false
         activeTextField = textField
+        disableAllComponents(exception: textField, shouldEnable: false)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         newToolBar.isHidden = true
         newPicker.isHidden = true
-        setOkButtonState()
+        disableAllComponents(exception: textField, shouldEnable: true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -28,12 +29,16 @@ extension FiltersController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        if textField == yeartFirstTextField || textField == yearSecondTextField {
+        if textField == yearFstEntryTxtField || textField == yearScdEntryTextField {
             let allowedCharacters = CharacterSet(charactersIn: "0123456789")
             let characterSet = CharacterSet(charactersIn: string)
             return allowedCharacters.isSuperset(of: characterSet)
         } else {
             return true
         }
+    }
+    
+    open override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        return false
     }
 }

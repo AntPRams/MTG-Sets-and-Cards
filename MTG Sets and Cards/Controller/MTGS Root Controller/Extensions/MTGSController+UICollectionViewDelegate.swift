@@ -26,7 +26,7 @@ extension MTGSCController: UICollectionViewDelegate {
         }
         selectedSet = model
         setDetailsView.setupLabelsWith(model)
-        
+        tempUrl = "/\(model.id)"
         MTGBigarClient.taskForGetRequest(
             url:     MTGBigarClient.generateUrl(for: "/\(model.id)"),
             handler: handleCardsResponse(response:error:)

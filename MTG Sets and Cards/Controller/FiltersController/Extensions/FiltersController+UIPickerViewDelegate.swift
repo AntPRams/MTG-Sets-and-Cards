@@ -14,14 +14,14 @@ extension FiltersController: UIPickerViewDelegate {
         
         var choosenValue = ""
         
-        if activeTextField == yeartFirstTextField || activeTextField == yearSecondTextField {
+        if activeTextField == yearFstEntryTxtField || activeTextField == yearScdEntryTextField {
             choosenValue = String(releaseYears[pickerView.selectedRow(inComponent: 0)])
         } else if activeTextField == setNameTextField {
             choosenValue = setNames[pickerView.selectedRow(inComponent: 0)]
         } else {
             choosenValue = Array(languages.values)[pickerView.selectedRow(inComponent: 0)]
         }
-        
+
         activeTextField?.text = choosenValue
         pickerView.resignFirstResponder()
     }

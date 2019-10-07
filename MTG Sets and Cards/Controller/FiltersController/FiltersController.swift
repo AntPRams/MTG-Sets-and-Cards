@@ -38,16 +38,29 @@ class FiltersController: UIViewController {
     
     @IBOutlet weak var languageTextField: UITextField! {
         didSet {
-            languageTextField.text = languages[languageCurrentlySelected]
+            languageTextField.text = languages[UserDefaults.standard.string(forKey: "Cards Language")!]
         }
     }
     
-    @IBOutlet weak var newPicker:           UIPickerView!
-    @IBOutlet weak var newToolBar:          UIToolbar!
-    @IBOutlet weak var setNameTextField:    UITextField!
-    @IBOutlet weak var yeartFirstTextField: UITextField!
-    @IBOutlet weak var yearSecondTextField: UITextField!
-    @IBOutlet weak var okButton:            UIButton!
+    @IBOutlet weak var okBarButton: UIBarButtonItem! {
+        didSet {
+            okBarButton.setAppearance(with: UIFont.belerenSmall, color: UIColor.white, for: .normal)
+            okBarButton.setAppearance(with: UIFont.belerenSmall, color: UIColor.lightGray, for: .highlighted)
+        }
+    }
+    @IBOutlet weak var cancelBarButton:     UIBarButtonItem! {
+        didSet {
+            cancelBarButton.setAppearance(with: UIFont.belerenSmall, color: UIColor.darkGray, for: .normal)
+            cancelBarButton.setAppearance(with: UIFont.belerenSmall, color: UIColor.lightGray, for: .highlighted)
+        }
+    }
+    @IBOutlet weak var newPicker:             UIPickerView!
+    @IBOutlet weak var newToolBar:            UIToolbar!
+    @IBOutlet weak var setNameTextField:      UITextField!
+    @IBOutlet weak var yearFstEntryTxtField:  UITextField!
+    @IBOutlet weak var yearScdEntryTextField: UITextField!
+    @IBOutlet weak var okButton:              UIButton!
+    @IBOutlet weak var cancelButton:          UIButton!
     
     //MARK: Properties
     
@@ -56,8 +69,9 @@ class FiltersController: UIViewController {
         return (collectionOfSets.map {$0.releaseDate.returnYearFromDate()}).removeDuplicates()
     }
     var setNames: [String] {
-        return collectionOfSets.map {$0.name}
+        return (collectionOfSets.map {$0.name}).sorted()
     }
+    
     
     weak var delegate: FiltersControllerDelegate?
     var picker = UIPickerView()
@@ -71,8 +85,7 @@ class FiltersController: UIViewController {
         
         newToolBar.isHidden = true
         newPicker.isHidden = true
-        setOkButtonState()
-        [setNameTextField, yeartFirstTextField, yearSecondTextField, languageTextField].forEach{
+        [setNameTextField, yearFstEntryTxtField, yearScdEntryTextField, languageTextField].forEach{
             $0?.delegate = self
             $0?.textColor = .white
             $0?.font = UIFont.belerenMedium
@@ -80,6 +93,7 @@ class FiltersController: UIViewController {
             $0?.inputView = newPicker
             $0?.inputAccessoryView = newToolBar
         }
+        yearScdEntryTextField.isUserInteractionEnabled = yearFstEntryTxtField.text == "" ? false : true
         setupPickerView()
     }
     
@@ -90,19 +104,24 @@ class FiltersController: UIViewController {
     }
     
     @IBAction func okButton(_ sender: Any) {
+        
+        if filter().count == 0 && UserDefaults.standard.string(forKey: "Cards Language") == languages.key(for: languageTextField.text!){
+            presentAlert(message: "Your search did not return any result, please try again")
+            return
+        }
+        
         delegate?.filtersController(didApplyFiltersIn: filter())
         UserDefaults.standard.set(languages.key(for: languageTextField.text!), forKey: "Cards Language")
         dismiss(animated: true, completion: nil)
     }
     
-    @objc func okToolbarButtonTapped() {
+    @IBAction func okOnBarButtonTapped(_ sender: Any) {
         view.endEditing(true)
     }
     
-    @objc func cancelToolbarButtonTapped() {
+    @IBAction func cancelOnBarButtonTapped(_ sender: Any) {
         view.endEditing(true)
         activeTextField?.text = ""
-        setOkButtonState()
     }
     
     //MARK: Methods
@@ -116,25 +135,15 @@ class FiltersController: UIViewController {
         newPicker.alpha = 0.7
     }
     
-    func setOkButtonState() {
-        for textField in [setNameTextField, yeartFirstTextField, yearSecondTextField] {
-            if textField!.text == "" {
-                okButton.isEnabled = false
-            } else {
-                okButton.isEnabled = true
-                break
-            }
-        }
-    }
-    
     private func filter() -> [MtgSet]{
         
         var filteredArray: [MtgSet] = []
         
-        if yeartFirstTextField.text != "" && yearSecondTextField.text != "" {
+        if yearFstEntryTxtField.text != "" && yearScdEntryTextField.text != "" {
             
-            if let firstChoosenYear = Int(yeartFirstTextField.text!), let secondChoosenYear = Int(yearSecondTextField.text!) {
-                let range = firstChoosenYear...secondChoosenYear
+            if let firstChoosenYear = Int(yearFstEntryTxtField.text!), let secondChoosenYear = Int(yearScdEntryTextField.text!) {
+                
+                let range = firstChoosenYear < secondChoosenYear ? firstChoosenYear...secondChoosenYear : secondChoosenYear...firstChoosenYear
                 
                 collectionOfSets.forEach {
                     if range.contains($0.releaseDate.returnYearFromDate()) {
@@ -143,9 +152,9 @@ class FiltersController: UIViewController {
                     }
                 }
             }
-        } else if yeartFirstTextField.text != "" {
+        } else if yearFstEntryTxtField.text != "" {
             
-            if let year = Int(yeartFirstTextField.text!) {
+            if let year = Int(yearFstEntryTxtField.text!) {
                 collectionOfSets.forEach {
                     if $0.releaseDate.returnYearFromDate() == year {
                         filteredArray.append($0)
@@ -164,6 +173,20 @@ class FiltersController: UIViewController {
             
         }
         return filteredArray
+    }
+    
+    func disableAllComponents(exception: UITextField, shouldEnable: Bool) {
+        
+        let uiComponents = [yearFstEntryTxtField, yearScdEntryTextField, okButton, cancelButton, languageTextField, setNameTextField]
+        
+        for component in uiComponents {
+            if component == exception {
+                continue
+            } else {
+                component?.isUserInteractionEnabled = shouldEnable
+                yearScdEntryTextField.isUserInteractionEnabled = yearFstEntryTxtField.text == "" ? false : true
+            }
+        }
     }
 }
 

@@ -22,7 +22,13 @@ extension MTGSCController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: CardTableViewCell.identifier) as! CardTableViewCell
         let model = collectionOfCards[indexPath.row]
         cell.handleError = { (error) in
-            self.presentAlert(message: error?.localizedDescription)
+            
+            switch error?.localizedDescription {
+            case "The operation couldn’t be completed. (SDWebImageErrorDomain error 2002.)":
+                return
+            default:
+                self.presentAlert(message: error?.localizedDescription)
+            }
         }
         cell.setupCellWith(model)
         return cell

@@ -15,7 +15,8 @@ extension FiltersController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if activeTextField == yeartFirstTextField || activeTextField == yearSecondTextField {
+        
+        if activeTextField == yearFstEntryTxtField || activeTextField == yearScdEntryTextField {
             return releaseYears.count
         } else if activeTextField == setNameTextField {
             return setNames.count
@@ -25,7 +26,7 @@ extension FiltersController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if activeTextField == yeartFirstTextField || activeTextField == yearSecondTextField {
+        if activeTextField == yearFstEntryTxtField || activeTextField == yearScdEntryTextField {
             return String(releaseYears[row])
         } else if activeTextField == setNameTextField {
             return setNames[row]
