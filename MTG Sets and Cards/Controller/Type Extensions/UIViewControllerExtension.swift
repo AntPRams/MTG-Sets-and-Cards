@@ -14,7 +14,7 @@ extension UIViewController {
         
         guard let alertMessage = message else {return}
         
-        let alert = UIAlertController(title: "Counterspell", message: alertMessage, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Oops...", message: alertMessage, preferredStyle: .alert)
         let alertButton = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         alert.addAction(alertButton)
         present(alert, animated: true)
